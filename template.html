@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🏠 HouseX Listings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-6xl mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold mb-6">🏡 Top Real Estate Listings</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for listing in listings %}
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <a href="{{ listing.link }}" class="text-xl font-semibold text-blue-600 hover:underline" target="_blank">{{ listing.name }}</a>
+        <p class="mt-2">📍 {{ listing.location }}</p>
+        <p>📐 {{ listing.square_meters }} m²</p>
+        <p>💶 {{ listing.price | round(0) }} € ({{ listing.price_per_sqm | round(1) }} €/m²)</p>
+        <p>⏳ {{ ((listing.time_delta or 0) / 3600) | round(1) }}h ago</p>
+        <div class="mt-2">
+          <span class="text-sm font-bold">Score:</span>
+          <div class="w-full h-3 bg-gray-300 rounded">
+            <div class="h-full bg-green-500 rounded" style="width: {{ (listing.score * 100) | round(1) }}%"></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
