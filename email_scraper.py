@@ -184,8 +184,28 @@ def scrape_immobiliare_emails():
             except Exception as e:
                 print(f"Logout error: {e}")
 
+
+# At the end of email_scraper.py
+
 if __name__ == '__main__':
     if not EMAIL_ACCOUNT or not EMAIL_PASSWORD:
         print("EMAIL_ACCOUNT or EMAIL_PASSWORD missing.")
     else:
         scrape_immobiliare_emails()
+
+        # Generate HTML visualization
+        from jinja2 import Environment, FileSystemLoader
+
+        env = Environment(loader=FileSystemLoader('.'))
+        with open("template.html", "r", encoding="utf-8") as file:
+            template = env.from_string(file.read())
+
+        listings = load_listings()
+        listings = rank_listings(listings)
+
+        html = template.render(listings=listings)
+        os.makedirs("docs", exist_ok=True)
+        with open("docs/index.html", "w", encoding="utf-8") as f:
+            f.write(html)
+        print("✅ Website updated at docs/index.html")
+
