@@ -30,8 +30,12 @@ def connect_mail():
 def load_listings():
     if not os.path.exists(LISTINGS_FILE) or os.path.getsize(LISTINGS_FILE) == 0:
         return []
-    with open(LISTINGS_FILE, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        with open(LISTINGS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        print("⚠️ listings.json is invalid or corrupted. Starting fresh.")
+        return []
 
 def save_listings(listings):
     with open(LISTINGS_FILE, 'w', encoding='utf-8') as f:
