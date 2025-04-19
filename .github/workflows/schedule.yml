@@ -1,16 +1,21 @@
-name: Email Scraper
+name: Scrape Immobiliare Emails
 
 on:
   schedule:
-    - cron: '0 8,14,20 * * *'  # Runs at 8 AM, 2 PM, and 8 PM every day
-  workflow_dispatch:            # Enables manual run button
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:      # Manual trigger from GitHub UI
 
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
 
+    env:
+      EMAIL_ACCOUNT: ${{ secrets.EMAIL_ACCOUNT }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,14 +28,12 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run the email scraper
-        env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+        run: python email_scraper.py
+
+      - name: Commit updated listings.json
         run: |
-          python email_scraper.py
-          
-      - name: Upload listings artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: listings-data
-          path: listings.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add listings.json
+          git commit -m "Update listings.json [auto]" || echo "No changes to commit"
+          git push
