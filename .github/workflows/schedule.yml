@@ -3,7 +3,8 @@ name: Scrape Immobiliare Emails
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # Runs hourly
+    # Runs hourly
+    - cron: '0 * * * *'
 
 jobs:
   scrape-and-deploy:
@@ -45,3 +46,4 @@ jobs:
         with:
           name: housex-site
           path: docs/index.html
+
