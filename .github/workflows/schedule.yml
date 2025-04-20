@@ -41,7 +41,7 @@ jobs:
           git commit -m "Update listings and HTML [auto]" || echo "No changes to commit"
           git push
 
-      - name: 📦 Upload artifact: HTML site
+      - name: 📦 Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: housex-site
