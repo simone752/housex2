@@ -1,1 +1,232 @@
-
+[
+  {
+    "name": "Appartamento in vendita in Via Arrigo Boito,",
+    "link": "https://www.casa.it/immobili/51210568/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 95,
+    "price": 169000.0,
+    "location": "",
+    "extracted_time": "2025-04-21T16:26:52.916029+00:00",
+    "received_time": "2025-04-21T10:34:10+00:00",
+    "score": 0.9829142782699323
+  },
+  {
+    "name": "Appartamento in vendita in Via Berardo Maggi,",
+    "link": "https://www.casa.it/immobili/51187280/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 105,
+    "price": 200000.0,
+    "location": "",
+    "extracted_time": "2025-04-21T16:26:52.915946+00:00",
+    "received_time": "2025-04-21T10:34:10+00:00",
+    "score": 0.9496699669966997
+  },
+  {
+    "name": "Appartamento in vendita in Via Gerolamo Savoldo 3,",
+    "link": "https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 86,
+    "price": 179000.0,
+    "location": "",
+    "extracted_time": "2025-04-21T16:26:52.916115+00:00",
+    "received_time": "2025-04-21T10:34:10+00:00",
+    "score": 0.902997639880267
+  },
+  {
+    "name": "﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/15CivMbbdixAVNQNQKjSUA~~/AAAHahA~/2waUjI5hhFqT2d6t8T7g_uh3eQl6NpIL8e603LqajprO7n3WO8SIOFC3m2tBUJ0rHqPf2Y-a7pTYT4b_RlgiAYJRsSTe4O7gmHSjMYwgUGY8-NSSUGTak_WkTYkpzHSh1UzDifS-FK77KMGeGb7Rm9EgFSZdMO7U9xjbc9gbINqrs86TtbHqfL3Shm7MICzE7zZ5M4r0IBJZbYyU9amsyoYSz9w6zHI3yXTEM0whrY2vS33FGtIzFClmrUa4ToT1PZilTaPtjeei3FvP1jprng~~",
+    "square_meters": 92,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:26:56.414863+00:00",
+    "received_time": "2025-04-17T10:28:05+00:00",
+    "score": 0.8640548350560764
+  },
+  {
+    "name": "﻿Bilocale via Sostegno, Brescia Due, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/O8Wx8Bcj6e_vsAGjJyhKrQ~~/AAAHahA~/8o3I4aamOuRweHlO2v4a8WxWB378lddcSnOG-EazrGGPnIZ9SBxFK4LeyCe0Fsc7svMTibt-sumSRmcD6lrkUKpQxW3gtyXmq1QUF-vCezz5BjzM5-nt7Po0oq2DgWpXwkr5O3JsNrdK7NL7bHF_rUOWY3ksIiM8v8o6AdAivxEA9efTrws1BTvkLTJ_dCSDq-6KRnUIvXfywJw6mZEmnsuoNmFGPJq0ggq_0Zf4ukvhD-uyucrsQLtRifklWcA--X138ynxzLoIGdSUQwLhIw~~",
+    "square_meters": 65,
+    "price": 125000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:26:58.019723+00:00",
+    "received_time": "2025-04-16T16:46:59+00:00",
+    "score": 0.8562529809167254
+  },
+  {
+    "name": "﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/I8SkdtIfoqHASks9ls8MEw~~/AAAHahA~/ZJwEsC2MaeoSzG5fuxV3huxANIqwg2E8xc7qmWP4C1UUlpxEp8hcCAh-U5-1Bj1FkgiPnlxeT7cqRL_OxPTWL_qsLev4SnCMyVDDGmuqMJxb5pPtSS1JByXvDd8QlOphu-7A1oejUDD6Awng2uvaWihABT1sK0OgHuS3_zn1WSp8DEWKWlbyyY8at8uDjQJVrhmi_0LU3WNRmpyJyQf3tiDqLQMigHmCEQ1cjQbIWCfkmLvXM8Uvt6DzrKoAhFQV6FSN0kX0u8wz6pr3-mcalg~~",
+    "square_meters": 89,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:26:54.476511+00:00",
+    "received_time": "2025-04-17T14:50:48+00:00",
+    "score": 0.8501340080485795
+  },
+  {
+    "name": "﻿Trilocale via Corsica, Don Bosco, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/cpyy3mTE9rGCwvOrOwFAvw~~/AAAHahA~/GnyjwW0WOBGITfdYQzAZ5ZeRSuJoPloMISnP7NHJ4XGwXSn7dBArE5kKmhxPgf_IvwIQVN5IKh53OCQRVCFWZf1-ibTc_IwVzJo_abP80Ab1Yocb9D8c4XrPmZ5tI2aojARosl0MZP1h3xD-9PGpoiBz74n4d2lto_2_HgFlMhlAq7igM_55lSzBInqylcwg8mgnXmeuDLnlS3O8KkagQ11UepmzT7NGt7H1cBmV3ejwCGWjZxEBHV5EXsKiKlV-R6nqQSfkiZK7MWgbMonvKQ~~",
+    "square_meters": 92,
+    "price": 197000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:26:57.056945+00:00",
+    "received_time": "2025-04-17T09:43:14+00:00",
+    "score": 0.811775243154564
+  },
+  {
+    "name": "﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/NuRfYVivIWSTMVvjZrGzoQ~~/AAAHahA~/j6TZ9xfkdgCV4BnC_E1aZmsA8NsiJLtgEGMOXtutQPZTH-DrYjyWUaOhEpMAHub8eu07w_y5P67HWUUQOdDAsxurHeTZD0fAS5uG57UCHq-Mi_egUW2smedDA_WXuvo2HxGD-Ka99qKImJQpzHW3TwEaOprU3sYd7GOvLLyRsVzw7Ibf5vduhQhz1ND50gl4GZEM25UdndEG3n3HRNlamBjuN6QThP9buZfw96WKHNrt2bvfVWddU1RHUrETzdMNx7_GQC3U_MgnKMBkRiB_8w~~",
+    "square_meters": 70,
+    "price": 120000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:02.191787+00:00",
+    "received_time": "2025-04-09T14:27:11+00:00",
+    "score": 0.7788282352473086
+  },
+  {
+    "name": "Appartamento in vendita in Contrada del Carmine,",
+    "link": "https://www.casa.it/immobili/51362498/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 66,
+    "price": 189000.0,
+    "location": "",
+    "extracted_time": "2025-04-21T16:26:52.482851+00:00",
+    "received_time": "2025-04-21T10:34:09+00:00",
+    "score": 0.6963037891630974
+  },
+  {
+    "name": "Appartamento in vendita in Via Cremona 48",
+    "link": "https://www.casa.it/immobili/50562173/",
+    "square_meters": 105,
+    "price": 298000.0,
+    "location": "Via Cremona 48",
+    "extracted_time": "2025-04-21T16:26:53.589280+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.685933286953756
+  },
+  {
+    "name": "Appartamento in vendita in veneto",
+    "link": "https://www.casa.it/immobili/48561413/",
+    "square_meters": 90,
+    "price": 259000.0,
+    "location": "veneto",
+    "extracted_time": "2025-04-21T16:26:53.589089+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.6754478634114018
+  },
+  {
+    "name": "Appartamento in vendita in Corso Goffredo Mameli",
+    "link": "https://www.casa.it/immobili/51136927/",
+    "square_meters": 90,
+    "price": 269000.0,
+    "location": "Corso Goffredo Mameli",
+    "extracted_time": "2025-04-21T16:26:53.588987+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.6460886774928101
+  },
+  {
+    "name": "﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/IneCESqW-VcJ_XYzHVFcWg~~/AAAHahA~/flMtRwa2-22V8FYjWBrsPE3lMyU76eFTillpViDMpf8v9JQmLz_qQh1N1AdyTmDStI_v3EeEEDsTyQaWT8LXTD2UR8Byyo5bbqXoAUhBvB3Fp5hamgzfTZywPLXuNlieS0MgwfYTQjbqqLaNeqBtc74Bhs3nqhFR2pI0IrYYbgqwynrHHLs7QhkhjMzpB3zjVIk0mwEHJlungxXAZXOy4jAtoUIEf7-RIUVI_GRfRzxiLlvyT62pjcTD--zqFUJ5CwQRFjxUOP2BW9c9XBt0gw~~",
+    "square_meters": 67,
+    "price": 189000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:26:55.772808+00:00",
+    "received_time": "2025-04-17T11:06:10+00:00",
+    "score": 0.6332810478853057
+  },
+  {
+    "name": "Appartamento in vendita in Via Marsala 38",
+    "link": "https://www.casa.it/immobili/50902893/",
+    "square_meters": 68,
+    "price": 235000.0,
+    "location": "Via Marsala 38",
+    "extracted_time": "2025-04-21T16:26:53.252363+00:00",
+    "received_time": "2025-04-20T13:46:30+00:00",
+    "score": 0.5236257294653001
+  },
+  {
+    "name": "﻿Trilocale via Giovanni Prati, Panoramica, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/P-7z-8qOjVgYS8JnlDo14g~~/AAAHahA~/OnQknli4n8_QhHRPPu8A3crhWThhq-sOmBoWtOCmx5xZX4bImvW-Kf0lYcJvk3_vZlazlVFRJIrpyBS5J8CxhMr6pXQRFHSUd0BV1EcMDwFDzWGBVnzyDukhx_nctFBcXdnk9pHGW5hc3hrxNQHoVxdeGrU3g5uZ8b1DxGkRXOsylhJXBDK4BvUUOSUpVM5O833pdDJ9tEUZCMEOj5VrvJj3O5HR4m5Cqxa6bv_9Z2xg-B5V2MOPX_SKIXmNjJhUkseYe6M_puAtrs4bX1TxLQ~~",
+    "square_meters": 80,
+    "price": 148000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:17.862643+00:00",
+    "received_time": "2025-03-26T17:04:30+00:00",
+    "score": 0.4834483414428654
+  },
+  {
+    "name": "Appartamento in vendita in Via Vittorio Emanuele II",
+    "link": "https://www.casa.it/immobili/51217516/",
+    "square_meters": 61,
+    "price": 220000.0,
+    "location": "Via Vittorio Emanuele II",
+    "extracted_time": "2025-04-21T16:26:53.589476+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.48288048167322806
+  },
+  {
+    "name": "﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/uu6QSnAxFv7rOxCSuoRauw~~/AAAHahA~/52thdwZ1WlB-vOEWdI_F0dkQ03u8HdN0MKDNDlo3ymC6f2uUw1bX2DlhY5p7mzV7P2f20jbASht9jvi-imioaPEVdcUWPd_KB0ss-cKlCJKgi2kO8vwwmaQhIRQZHlQKMQHwwr0FcLrjcqGBFdOe9ZPOEkpdsaOeuPn5ZuUoTMJjzT-Z7Sm7HowzSXFYbIpCLKEe8BfLpnkGGHFb1X8G5JARpxOcjGlPK_rJ1pbbDT5yK5bW24-yZY4SpQY7vQ3UZZLzQXr2qAjj7kLxO-42Sw~~",
+    "square_meters": 86,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:15.958908+00:00",
+    "received_time": "2025-03-27T15:09:53+00:00",
+    "score": 0.4395019799819765
+  },
+  {
+    "name": "﻿Monolocale via Mantova 38, Porta Venezia, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/Et4KscqqRqlGJ1yYW1kK2A~~/AAAHahA~/Ps8vR8dgZrewNM889ZBi4IbNf7JM-fSz2V502UbopnHQz_lDNn6iA0qf6sC25R5hmIwRu6HDh0kS5ek9s6KN_wJPjljAISjyFnk3e43X0X8V3qbTEUOcGqAv2x2KYlrsL_-IGdsH1UbhTay0mjHeFukDWo3JSdRisafuUDwv1mOUwUuPj59ZkPst_aXDpRU7ZYt0jmznn0V_Hu00dstUkbELF8Ssted812qco1iQeH8fKr-j5F9b5t346qCI4fd3h56OsjFlcJViPk-A7dpS6w~~",
+    "square_meters": 83,
+    "price": 189000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:13.750740+00:00",
+    "received_time": "2025-03-28T21:28:00+00:00",
+    "score": 0.4113768822616276
+  },
+  {
+    "name": "﻿Trilocale via Corsica 76, Don Bosco, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/5C7QYwPLhwAbRYrKuR_oRA~~/AAAHahA~/nmoZF1ZwCJeOhTmE4-AJRf6ahxey1i__GM24KR1LWe54CSaiS9RT7HuhDG4evHwvrfgOLCJu_-Kl5FgyjO0j3nKJLLSXIXUux8k_0GtaPcvBWoifRhrZcvibLp6CIL6pojkw-PBw0KVolwFJKf0eO70PqhzbSLOs5UckiLL5TV2H4UjrnRwr8CO5pRmHmdhLcXgf1NYiC_gCByqoW2G1OqhD5l1AVTKG--IfBvJxMeaL3Xd0vUUKijz-QxPMhsptilJDsB1048LJqBIRNf3NEg~~",
+    "square_meters": 85,
+    "price": 197000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:15.010073+00:00",
+    "received_time": "2025-03-28T15:52:26+00:00",
+    "score": 0.39631152831556354
+  },
+  {
+    "name": "﻿Bilocale via delle Grazie 6, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/vm-D7N2M0nDs3HTTMRf3Jw~~/AAAHahA~/w4bE40mUFFGz9L4aB9FAkmL0vKE_iGMJAeiOCgAC919HSZsRPJjVTwGZksiWuVd8JeV9Zlhe3QTNvhILgzkxdZpRGv2ifSVjGqmKSONM3JXogqpBlsjsCLMeiLpCDWWwCdtwI7sXEaEw6mkQXcQ726nx8373dU1iBNmjhgvXa1rb6LI3tmzKt1khnOy5OoqP9DH6FSFWP0B2qKJ5_b7UCcMCA8SQRL2_hs6fJDJY3clWUJq7yqXW9LjbJnVaf0yF0eQMd9JGrNU5atmShjrz8g~~",
+    "square_meters": 80,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:17.547298+00:00",
+    "received_time": "2025-03-27T06:45:32+00:00",
+    "score": 0.39171046944672944
+  },
+  {
+    "name": "﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/l7VFG1Hr0d_26MMerm8Jpg~~/AAAHahA~/LRfSURe-XW0NOoBJSMqNSW09HZik3co6SYe6ksP3COg0r2rj9Udsd5AZ4DONFzPY8n_Ks4apuiZbdnEh3Wf0Y_ZW1TAkYVbNxOm9OWVRzvIjsI8XSpLkNHvdtkvKZGWXW_JNlfk1T1451QOKgg5fDEBwI4EeiDrI9K6yHqSK04ooHQVlm8o2ygPWo2KJZez7jWIP1t67rEu5t02H4PicXi6oNJLvV2_XQ9fANS7ZrcDGSrade9ktjLp9Wm-SIcKtWdd_xd6plb3rGI7L_eB_0Q~~",
+    "square_meters": 64,
+    "price": 178000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:11.925133+00:00",
+    "received_time": "2025-04-01T14:26:08+00:00",
+    "score": 0.34742446650204595
+  },
+  {
+    "name": "﻿Attico via Lattanzio Gambara, Solferino - Diaz, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/8lCAk5808CSt0dryDLJ46g~~/AAAHahA~/MXIygt54U3zOgyok43avNx8F0yZ5VbKyAxVc50ROvPtOOCBvUrnuCzJRcRVw5LWXOo_TdBvho07hviRO0qnS5J94hKPqKZTw8tqWTgu-flf59_bhyJ_qO9pvVUfYOrbh2OUYmkjmrK86rvI8iOOWCFG4zwqYK7FzDFuHBA9FrovnzXVvjlVSBjtlQK_lXYrEr7f8OC45in06TeXhhQJ-66ZlV7RdWL2aryWJdcPFdSPmo-y4DT_ICNtzRKUR--auqmywn39QMMlfz-GprCcM8g~~",
+    "square_meters": 78,
+    "price": 199000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:18.493483+00:00",
+    "received_time": "2025-03-26T15:28:38+00:00",
+    "score": 0.29690291254866047
+  },
+  {
+    "name": "﻿Bilocale via Teosa 2, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/SOM0HEAhlEZy5pD8o6wtjw~~/AAAHahA~/Insirnbth_ffYMc5VQZna4Oca39jFzf_WU6WaTY-Wb_WYsauzrUuW3jEThRTtMPn5u0h0ZHPCRGN5dH5a_ciHQ1co_41JK0ALNTNt3EnF1b09ZaRoA3Fhm2BMLsmWQnAoPPbLGK8g87BnNumDIUg4PImPIojmPVGIy8DC22PlDyAlB_-U0l3YgVPgSxYTbx2TEKrFo-E6gbGr439aTuokLVWwmRidTg8k-uuU1MVkz21pTKufSSgWwmq3gjtbg3BE3Rg-E4zN1uOEwKoUeUwpw~~",
+    "square_meters": 62,
+    "price": 157000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-04-21T16:27:20.397940+00:00",
+    "received_time": "2025-03-25T16:16:17+00:00",
+    "score": 0.28386497923985937
+  }
+]
