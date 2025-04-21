@@ -31,6 +31,9 @@ jobs:
       - name: 📬 Run email_scraper.py
         run: python email_scraper.py
 
+      - name: 🌐 Generate HTML page
+        run: python generate_html.py
+
       - name: 💾 Commit updated data and HTML
         run: |
           git config user.name "github-actions[bot]"
@@ -38,7 +41,7 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add listings.json docs/index.html
           git commit -m "Update listings and HTML [auto]" || echo "No changes to commit"
-          git push origin main
+          git push
 
       - name: 📦 Upload artifact
         uses: actions/upload-artifact@v4
