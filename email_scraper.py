@@ -15,7 +15,7 @@ IMAP_SERVER = 'imapmail.libero.it'
 EMAIL_ACCOUNT = os.getenv('EMAIL_ACCOUNT')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 LISTINGS_FILE = 'listings.json'
-BAD_KEYWORDS = ['stazione', 'asta', 'affitto', 'corsica', 'mansarda', 'villaggio']
+BAD_KEYWORDS = ['stazione', 'asta', 'affitto', 'Corsica', 'corsica', 'mansarda', 'villaggio']
 MAX_SQUARE_METERS = 105
 MIN_SQUARE_METERS = 60
 MAX_LISTING_AGE = timedelta(days=30)
