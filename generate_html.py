@@ -1,112 +1,52 @@
+# generate_html.py
 import json
-from datetime import datetime
+from pathlib import Path
 
-# Load listings
-with open("listings.json", "r", encoding="utf-8") as f:
+with open('listings.json', encoding='utf-8') as f:
     listings = json.load(f)
 
-# Sort listings by score, highest first
-listings.sort(key=lambda x: x.get("score", 0), reverse=True)
+listings = sorted(listings, key=lambda x: -x.get('score', 0))
 
-# Start HTML content
-html_content = f"""<!DOCTYPE html>
+html = """<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>🏠 House Listings</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
-            color: #333;
-        }}
-        h1 {{
-            text-align: center;
-        }}
-        .date-info {{
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 30px;
-            color: #666;
-        }}
-        table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }}
-        th, td {{
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }}
-        th {{
-            background-color: #4CAF50;
-            color: white;
-        }}
-        tr:nth-child(even) {{
-            background-color: #f2f2f2;
-        }}
-        .score-bar {{
-            height: 12px;
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            border-radius: 5px;
-        }}
-    </style>
+  <meta charset="UTF-8">
+  <title>🏠 House Listings</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f5f5f5; }
+    h1 { text-align: center; }
+    .card {
+      background: white;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .score { float: right; font-weight: bold; color: #2b7a78; }
+    .link { text-decoration: none; color: #17252a; }
+    .meta { color: #555; font-size: 0.9em; margin-top: 4px; }
+  </style>
 </head>
 <body>
-
-<h1>🏡 Best House Listings</h1>
-<div class="date-info">Generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</div>
-
-<table>
-    <thead>
-        <tr>
-            <th>🏠 Name</th>
-            <th>📍 Location</th>
-            <th>📏 Size (m²)</th>
-            <th>💶 Price (€)</th>
-            <th>📊 Score</th>
-        </tr>
-    </thead>
-    <tbody>
+  <h1>🏠 Ranked House Listings</h1>
 """
 
-# Generate table rows
-for listing in listings:
-    name = listing.get("name", "N/A")
-    url = listing.get("url", "#")
-    location = listing.get("location", "Unknown")
-    size = listing.get("size", "N/A")
-    price = listing.get("price", "N/A")
-    score = listing.get("score", 0)
-
-    html_content += f"""
-        <tr>
-            <td><a href="{url}" target="_blank">{name}</a></td>
-            <td>{location}</td>
-            <td>{size}</td>
-            <td>{price}</td>
-            <td>
-                <div style="width: {score}%; max-width: 100px;">
-                    <div class="score-bar" style="width: {score}%"></div>
-                </div>
-                {score}
-            </td>
-        </tr>
+for l in listings:
+    html += f"""
+    <div class="card">
+      <a href="{l['link']}" class="link" target="_blank">{l['name']}</a>
+      <span class="score">Score: {l['score']:.2f}</span>
+      <div class="meta">📍 {l.get('location', 'N/A')} | {l['square_meters']} m² | €{l['price']:,.0f}</div>
+    </div>
     """
 
-# End HTML content
-html_content += """
-    </tbody>
-</table>
-
+html += """
 </body>
 </html>
 """
 
-# Save the file
+Path("docs").mkdir(exist_ok=True)
 with open("docs/index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
+    f.write(html)
 
-print("✅ HTML file generated: docs/index.html")
+print("✅ Generated docs/index.html")
