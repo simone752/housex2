@@ -28,7 +28,7 @@ EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 LISTINGS_FILE = 'listings.json'
 
 # Filtering Criteria
-BAD_KEYWORDS = ['stazione', 'asta', 'affitto', 'garage', 'box']
+BAD_KEYWORDS = ['stazione', 'asta', 'affitto', 'corsica', 'mansarda']
 MAX_SQUARE_METERS = 105
 MIN_SQUARE_METERS = 60
 MIN_PRICE_PER_SQM = 1700 # Minimum acceptable price per square meter
