@@ -2,264 +2,831 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🏠 House Listings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏠 House Listings Dashboard</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; background: #f5f5f5; }
-    h1 { text-align: center; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f9; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 10px; }
+    .subtitle { text-align: center; color: #7f8c8d; margin-top: 0; margin-bottom: 30px; font-size: 0.9em; }
+    .summary { background-color: #eaf2f8; border-left: 5px solid #3498db; padding: 10px 15px; margin-bottom: 25px; font-size: 0.95em; border-radius: 4px; }
+    .summary p { margin: 5px 0; }
+    .summary strong { color: #2980b9; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
     .card {
       background: white;
-      padding: 16px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease-in-out;
     }
-    .score { float: right; font-weight: bold; color: #2b7a78; }
-    .link { text-decoration: none; color: #17252a; }
-    .meta { color: #555; font-size: 0.9em; margin-top: 4px; }
+    .card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.12); }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .card-title a {
+        text-decoration: none; color: #34495e; font-weight: 600; font-size: 1.1em;
+        /* Prevent long titles from breaking layout */
+        overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    }
+    .card-title a:hover { color: #3498db; }
+
+    .score-badge {
+        font-size: 0.9em; font-weight: bold; padding: 3px 8px; border-radius: 12px;
+        color: white; white-space: nowrap; /* Prevent wrapping */
+    }
+
+    .card-body { font-size: 0.9em; color: #555; margin-bottom: 15px; flex-grow: 1; } /* Allow body to grow */
+    .card-body strong { color: #333; }
+    .card-body .detail-item { margin-bottom: 5px; }
+    .card-body .detail-item .label { display: inline-block; width: 20px; text-align: center; margin-right: 5px; opacity: 0.7; } /* Icons */
+
+    .card-footer { font-size: 0.8em; color: #888; border-top: 1px solid #eee; padding-top: 10px; margin-top: auto; } /* Push footer down */
+    .card-footer span { display: inline-block; margin-right: 10px; }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+        body { padding: 10px; }
+        h1 { font-size: 1.5em; }
+        .card-grid { grid-template-columns: 1fr; } /* Stack cards on small screens */
+    }
   </style>
 </head>
 <body>
-  <h1>🏠 Ranked House Listings</h1>
+  <div class="container">
+    <h1>🏠 House Listings Dashboard</h1>
+    <p class="subtitle">Ranked by calculated score based on price/m² and recency.</p>
 
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51255273/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Berardo Maggi 61,</a>
-      <span class="score">Score: 0.96</span>
-      <div class="meta">📍  | 90 m² | €165,000</div>
+    <div class="summary">
+      <p><strong>Total Listings:</strong> 40</p>
+      <p><strong>Average Price:</strong> N/A</p>
+      <p><strong>Generated:</strong> 2025-04-28 08:25:22 UTC</p>
     </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51210568/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Arrigo Boito,</a>
-      <span class="score">Score: 0.91</span>
-      <div class="meta">📍  | 95 m² | €169,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/r2VwKTTlchaykPAnTPEZFQ~~/AAAHahA~/lO8kYNp420V71g3fh_Dinaj_GcWG9Y4kxFJ0vVL1PDvYqf4lgHuFvKEhAzpE2rpguJFffcTJGnNVoUY3q_arxL9kEgm_Wyc1pHK9f6lHiQs0dgqjgaUEzkoEJUwI1USHMRV8jguH-UBjqo3fKavg4GaLKlSP_c_exQUbpS9URm4i7IdNnMoXe_JlZ0Zt8h7Tcp8iQnUvczkfBMBZ_4w0ksDW2jG1IdkEnQB7_9j_MRgCEQRC5w8BqHg1S73GaXqo2nLwUD71veK4ral5oFLoCw~~" class="link" target="_blank">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a>
-      <span class="score">Score: 0.88</span>
-      <div class="meta">📍 Brescia﻿ | 86 m² | €169,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/zws2cZ5ONsywqgwDUTmYzA~~/AAAHahA~/lO8kYNp420V71g3fh_Dinaj_GcWG9Y4kxFJ0vVL1PDvYqf4lgHuFvKEhAzpE2rpguJFffcTJGnNVoUY3q_arxL9kEgm_Wyc1pHK9f6lHiQs0dgqjgaUEzkoEJUwI1USHMRV8jguH-UBjqo3fKavg4GaLKlSP_c_exQUbpS9URm4i7IdNnMoXe_JlZ0Zt8h7TE-gKe1qZ7PJ9AyX4pzRAMrXlhVlfysdh-irTM3veafC0sct8uQOQ90LiA11VHGOewXN0uup1jbZ4KK8bs5icWw~~" class="link" target="_blank">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a>
-      <span class="score">Score: 0.88</span>
-      <div class="meta">📍 Brescia﻿ | 86 m² | €169,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51187280/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Berardo Maggi,</a>
-      <span class="score">Score: 0.87</span>
-      <div class="meta">📍  | 105 m² | €200,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/48162648/?aid=MTAxMTYzNDk%3D" class="link" target="_blank">Appartamento in vendita</a>
-      <span class="score">Score: 0.81</span>
-      <div class="meta">📍 vendita | 85 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Gerolamo Savoldo 3,</a>
-      <span class="score">Score: 0.81</span>
-      <div class="meta">📍  | 86 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/15CivMbbdixAVNQNQKjSUA~~/AAAHahA~/2waUjI5hhFqT2d6t8T7g_uh3eQl6NpIL8e603LqajprO7n3WO8SIOFC3m2tBUJ0rHqPf2Y-a7pTYT4b_RlgiAYJRsSTe4O7gmHSjMYwgUGY8-NSSUGTak_WkTYkpzHSh1UzDifS-FK77KMGeGb7Rm9EgFSZdMO7U9xjbc9gbINqrs86TtbHqfL3Shm7MICzE7zZ5M4r0IBJZbYyU9amsyoYSz9w6zHI3yXTEM0whrY2vS33FGtIzFClmrUa4ToT1PZilTaPtjeei3FvP1jprng~~" class="link" target="_blank">﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.80</span>
-      <div class="meta">📍 Brescia﻿ | 92 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/AYJ7tAQzImsxmL17NslsEQ~~/AAAHahA~/9qCh-QMCNZMqqPDGtUaJ7Lp-FJtQ0va1Eoo6ESsMLprG7snyfbTQ78-zdXTbNMd8dBU25YvaPRlXVQZGHxkVL15govkwC4xiY1k8z6HFxk9WLz1Rld_xZrIzwpfBAMTCjhMVWKu_nrPANO9njFI-Wgp4wJcbgyczk9wxlqzpHk_khtvMe29aDaW2JPmSnhHM7x8KkWu2WNFl9As5FGVbx6fVlWbY8LPGUoLHDLVcn-0PIP_erBrmno3qNdPKFU0CBhZLZgi75Vg9yaquGlG2tQ~~" class="link" target="_blank">﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.80</span>
-      <div class="meta">📍 Brescia﻿ | 92 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/O8Wx8Bcj6e_vsAGjJyhKrQ~~/AAAHahA~/8o3I4aamOuRweHlO2v4a8WxWB378lddcSnOG-EazrGGPnIZ9SBxFK4LeyCe0Fsc7svMTibt-sumSRmcD6lrkUKpQxW3gtyXmq1QUF-vCezz5BjzM5-nt7Po0oq2DgWpXwkr5O3JsNrdK7NL7bHF_rUOWY3ksIiM8v8o6AdAivxEA9efTrws1BTvkLTJ_dCSDq-6KRnUIvXfywJw6mZEmnsuoNmFGPJq0ggq_0Zf4ukvhD-uyucrsQLtRifklWcA--X138ynxzLoIGdSUQwLhIw~~" class="link" target="_blank">﻿Bilocale via Sostegno, Brescia Due, Brescia﻿</a>
-      <span class="score">Score: 0.80</span>
-      <div class="meta">📍 Brescia﻿ | 65 m² | €125,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/I8SkdtIfoqHASks9ls8MEw~~/AAAHahA~/ZJwEsC2MaeoSzG5fuxV3huxANIqwg2E8xc7qmWP4C1UUlpxEp8hcCAh-U5-1Bj1FkgiPnlxeT7cqRL_OxPTWL_qsLev4SnCMyVDDGmuqMJxb5pPtSS1JByXvDd8QlOphu-7A1oejUDD6Awng2uvaWihABT1sK0OgHuS3_zn1WSp8DEWKWlbyyY8at8uDjQJVrhmi_0LU3WNRmpyJyQf3tiDqLQMigHmCEQ1cjQbIWCfkmLvXM8Uvt6DzrKoAhFQV6FSN0kX0u8wz6pr3-mcalg~~" class="link" target="_blank">﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.79</span>
-      <div class="meta">📍 Brescia﻿ | 89 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/F7PDYf9-jxSb9SptPeelkQ~~/AAAHahA~/c4EdU33a_k-Yowlx0Jc7ynW-Sv0N8AmzFYEBA8toh-AXrgsTgOlfgEOWh2SMwHBBw7X38cp7ubBkpIJRGSbIy7pxnEhe_UVnn6UC1oU7ulwVrPpo5ZtVr7fh5Y3PuNJwqFYT5NGUQSW7WrrKvHP_1gS80Uj2CP4M3Fi4vI1Vl16uEm58Lp1il0yPnmJwQNGYcQ1eFua9Y2FV8AFShA1kWKwSx0-xDW2JD8Ooqnuww7E0SeBvCIwEAodW8Hq-vaB8i9j57VVK-E4uopBMavGRwQ~~" class="link" target="_blank">﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.79</span>
-      <div class="meta">📍 Brescia﻿ | 89 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/NuRfYVivIWSTMVvjZrGzoQ~~/AAAHahA~/j6TZ9xfkdgCV4BnC_E1aZmsA8NsiJLtgEGMOXtutQPZTH-DrYjyWUaOhEpMAHub8eu07w_y5P67HWUUQOdDAsxurHeTZD0fAS5uG57UCHq-Mi_egUW2smedDA_WXuvo2HxGD-Ka99qKImJQpzHW3TwEaOprU3sYd7GOvLLyRsVzw7Ibf5vduhQhz1ND50gl4GZEM25UdndEG3n3HRNlamBjuN6QThP9buZfw96WKHNrt2bvfVWddU1RHUrETzdMNx7_GQC3U_MgnKMBkRiB_8w~~" class="link" target="_blank">﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.78</span>
-      <div class="meta">📍 Brescia﻿ | 70 m² | €120,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/Idwfcyb5D5Q9AsFBRxSaaQ~~/AAAHahA~/_fe4IwQUQYf4Ir_0rgJrMTmnc17DEhVS3ktZS-EKiGAkz9VF-6t-ivgoWG_d1YkL1XZuF7WC8ogpC6SFTdDdhIR-G5fMsoXlZy3X45Et_u2rb9iU7un36yZs7jUKrwykkYtrjzpb-JL74xLNtUu5X4u7vS0FU7qt0tJ1x65Io_l07AYqB06Scxxpp-yDLvmu05FUXtrMXH-MCDqW50vAfCt-KaJP72QQZ-q_V3tX8kSYnsDTf4HZgRJ2LdsqZiwXj_u8GWvmKLjaXQfqEbrdjQ~~" class="link" target="_blank">﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.78</span>
-      <div class="meta">📍 Brescia﻿ | 70 m² | €120,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/cpyy3mTE9rGCwvOrOwFAvw~~/AAAHahA~/GnyjwW0WOBGITfdYQzAZ5ZeRSuJoPloMISnP7NHJ4XGwXSn7dBArE5kKmhxPgf_IvwIQVN5IKh53OCQRVCFWZf1-ibTc_IwVzJo_abP80Ab1Yocb9D8c4XrPmZ5tI2aojARosl0MZP1h3xD-9PGpoiBz74n4d2lto_2_HgFlMhlAq7igM_55lSzBInqylcwg8mgnXmeuDLnlS3O8KkagQ11UepmzT7NGt7H1cBmV3ejwCGWjZxEBHV5EXsKiKlV-R6nqQSfkiZK7MWgbMonvKQ~~" class="link" target="_blank">﻿Trilocale via Corsica, Don Bosco, Brescia﻿</a>
-      <span class="score">Score: 0.74</span>
-      <div class="meta">📍 Brescia﻿ | 92 m² | €197,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51211353/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via San Faustino,</a>
-      <span class="score">Score: 0.65</span>
-      <div class="meta">📍  | 90 m² | €236,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/spXzps7uae9hwp8F6LgSlA~~/AAAHahA~/qYKD-Rz6RgplPKjYHszfIUyWZwFVzFoQ90BJ9d3QGFKx-pw3lhU3sxSzrmex4wXUWNAy_x1u19UF5A0HuoTJJIoMwQQywbdXvAidg0wzmXOIOCUUwLdZOBqy-s-MXeMFYUA1Z1UrMkvv6BvX_S_kPOM1al8I6atUo3GlesrSy63zBkKfFu-YQKdmAlEA5pmMPDhfTda392XQ8yzfvRiVT09B3Pa6Ss5TJlG4Q_6Z_NPYihloVfiU7wKKUN0UmkBNRMFhtiVd4tGoMFrZwIokKQ~~" class="link" target="_blank">﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿</a>
-      <span class="score">Score: 0.64</span>
-      <div class="meta">📍 Brescia﻿ | 60 m² | €159,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/V8tMKwILWc2P24p2fIY-mg~~/AAAHahA~/tSrqiSfS0TuYErHcanAfzlnMBSHmLZHMo1Rycf-NA4oSPZOXgoSUR5NK4ltA7av1H-AvHzXDq85Hf2pIFiq9D_LXambLCbfD6_VCcCOsJ09O8k-dlKqZyN18ocP8gglzS_3t6wZ6ZUxWxkcO7diMGfXu71sG1zHOlCKbJoSFL43eCxtnCBjwfli8pz9hE9g84J20RcTLf2WP0o-4rXMTv9d8fWf91qhnAnpVApEHTjhkbh0QCjb7IXd57mKj75SRkHRSeSZ6a8Jfs8sIrYkHMQ~~" class="link" target="_blank">﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿</a>
-      <span class="score">Score: 0.64</span>
-      <div class="meta">📍 Brescia﻿ | 60 m² | €159,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51351891/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Lamarmora,</a>
-      <span class="score">Score: 0.57</span>
-      <div class="meta">📍  | 100 m² | €290,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/P-7z-8qOjVgYS8JnlDo14g~~/AAAHahA~/OnQknli4n8_QhHRPPu8A3crhWThhq-sOmBoWtOCmx5xZX4bImvW-Kf0lYcJvk3_vZlazlVFRJIrpyBS5J8CxhMr6pXQRFHSUd0BV1EcMDwFDzWGBVnzyDukhx_nctFBcXdnk9pHGW5hc3hrxNQHoVxdeGrU3g5uZ8b1DxGkRXOsylhJXBDK4BvUUOSUpVM5O833pdDJ9tEUZCMEOj5VrvJj3O5HR4m5Cqxa6bv_9Z2xg-B5V2MOPX_SKIXmNjJhUkseYe6M_puAtrs4bX1TxLQ~~" class="link" target="_blank">﻿Trilocale via Giovanni Prati, Panoramica, Brescia﻿</a>
-      <span class="score">Score: 0.57</span>
-      <div class="meta">📍 Brescia﻿ | 80 m² | €148,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/50161992/?aid=MTAxMTYzNDk%3D" class="link" target="_blank">Appartamento in vendita in Via Moretto,</a>
-      <span class="score">Score: 0.57</span>
-      <div class="meta">📍  | 100 m² | €289,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51362498/?aid=MTAxMTYzNDk%3D" class="link" target="_blank">Appartamento in vendita in Contrada del Carmine,</a>
-      <span class="score">Score: 0.56</span>
-      <div class="meta">📍  | 66 m² | €189,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/50562173/" class="link" target="_blank">Appartamento in vendita in Via Cremona 48</a>
-      <span class="score">Score: 0.56</span>
-      <div class="meta">📍 Via Cremona 48 | 105 m² | €298,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/48561413/" class="link" target="_blank">Appartamento in vendita in veneto</a>
-      <span class="score">Score: 0.55</span>
-      <div class="meta">📍 veneto | 90 m² | €259,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/IneCESqW-VcJ_XYzHVFcWg~~/AAAHahA~/flMtRwa2-22V8FYjWBrsPE3lMyU76eFTillpViDMpf8v9JQmLz_qQh1N1AdyTmDStI_v3EeEEDsTyQaWT8LXTD2UR8Byyo5bbqXoAUhBvB3Fp5hamgzfTZywPLXuNlieS0MgwfYTQjbqqLaNeqBtc74Bhs3nqhFR2pI0IrYYbgqwynrHHLs7QhkhjMzpB3zjVIk0mwEHJlungxXAZXOy4jAtoUIEf7-RIUVI_GRfRzxiLlvyT62pjcTD--zqFUJ5CwQRFjxUOP2BW9c9XBt0gw~~" class="link" target="_blank">﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿</a>
-      <span class="score">Score: 0.53</span>
-      <div class="meta">📍 Brescia﻿ | 67 m² | €189,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/dnDfDXJz1e4HzQRLe3pqDA~~/AAAHahA~/cep6r2hd2AfY8Ksa8J6IFUyKopJQV2ZgIXALVJR-oL--SyxCHCh4rg0R8cdJ8RosnnJOgH-8vlWxmJ1JpHYzBL3xIUDSS_0xbS-wPf9TgKT4psz784RfREYPEvn3UmfCtUZ1AfmUA3_k1nKXkHnF1vCrncZ6tjDQWMzdS8hnnxV-A4Dhe823hGm1q8FxlITwWixs-b2QwWFsigGZoigd7o6vVBuBufFlsPem5-xbKn3wiEMGInadzHve0EOhaTqWti4_meXGyVV3KJzYQdr6bA~~" class="link" target="_blank">﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿</a>
-      <span class="score">Score: 0.53</span>
-      <div class="meta">📍 Brescia﻿ | 67 m² | €189,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51136927/" class="link" target="_blank">Appartamento in vendita in Corso Goffredo Mameli</a>
-      <span class="score">Score: 0.51</span>
-      <div class="meta">📍 Corso Goffredo Mameli | 90 m² | €269,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51380746/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Sostegno 6,</a>
-      <span class="score">Score: 0.51</span>
-      <div class="meta">📍  | 95 m² | €295,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/uu6QSnAxFv7rOxCSuoRauw~~/AAAHahA~/52thdwZ1WlB-vOEWdI_F0dkQ03u8HdN0MKDNDlo3ymC6f2uUw1bX2DlhY5p7mzV7P2f20jbASht9jvi-imioaPEVdcUWPd_KB0ss-cKlCJKgi2kO8vwwmaQhIRQZHlQKMQHwwr0FcLrjcqGBFdOe9ZPOEkpdsaOeuPn5ZuUoTMJjzT-Z7Sm7HowzSXFYbIpCLKEe8BfLpnkGGHFb1X8G5JARpxOcjGlPK_rJ1pbbDT5yK5bW24-yZY4SpQY7vQ3UZZLzQXr2qAjj7kLxO-42Sw~~" class="link" target="_blank">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a>
-      <span class="score">Score: 0.51</span>
-      <div class="meta">📍 Brescia﻿ | 86 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/Et4KscqqRqlGJ1yYW1kK2A~~/AAAHahA~/Ps8vR8dgZrewNM889ZBi4IbNf7JM-fSz2V502UbopnHQz_lDNn6iA0qf6sC25R5hmIwRu6HDh0kS5ek9s6KN_wJPjljAISjyFnk3e43X0X8V3qbTEUOcGqAv2x2KYlrsL_-IGdsH1UbhTay0mjHeFukDWo3JSdRisafuUDwv1mOUwUuPj59ZkPst_aXDpRU7ZYt0jmznn0V_Hu00dstUkbELF8Ssted812qco1iQeH8fKr-j5F9b5t346qCI4fd3h56OsjFlcJViPk-A7dpS6w~~" class="link" target="_blank">﻿Monolocale via Mantova 38, Porta Venezia, Brescia﻿</a>
-      <span class="score">Score: 0.46</span>
-      <div class="meta">📍 Brescia﻿ | 83 m² | €189,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/vm-D7N2M0nDs3HTTMRf3Jw~~/AAAHahA~/w4bE40mUFFGz9L4aB9FAkmL0vKE_iGMJAeiOCgAC919HSZsRPJjVTwGZksiWuVd8JeV9Zlhe3QTNvhILgzkxdZpRGv2ifSVjGqmKSONM3JXogqpBlsjsCLMeiLpCDWWwCdtwI7sXEaEw6mkQXcQ726nx8373dU1iBNmjhgvXa1rb6LI3tmzKt1khnOy5OoqP9DH6FSFWP0B2qKJ5_b7UCcMCA8SQRL2_hs6fJDJY3clWUJq7yqXW9LjbJnVaf0yF0eQMd9JGrNU5atmShjrz8g~~" class="link" target="_blank">﻿Bilocale via delle Grazie 6, Loggia - Garibaldi, Brescia﻿</a>
-      <span class="score">Score: 0.45</span>
-      <div class="meta">📍 Brescia﻿ | 80 m² | €179,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/5C7QYwPLhwAbRYrKuR_oRA~~/AAAHahA~/nmoZF1ZwCJeOhTmE4-AJRf6ahxey1i__GM24KR1LWe54CSaiS9RT7HuhDG4evHwvrfgOLCJu_-Kl5FgyjO0j3nKJLLSXIXUux8k_0GtaPcvBWoifRhrZcvibLp6CIL6pojkw-PBw0KVolwFJKf0eO70PqhzbSLOs5UckiLL5TV2H4UjrnRwr8CO5pRmHmdhLcXgf1NYiC_gCByqoW2G1OqhD5l1AVTKG--IfBvJxMeaL3Xd0vUUKijz-QxPMhsptilJDsB1048LJqBIRNf3NEg~~" class="link" target="_blank">﻿Trilocale via Corsica 76, Don Bosco, Brescia﻿</a>
-      <span class="score">Score: 0.45</span>
-      <div class="meta">📍 Brescia﻿ | 85 m² | €197,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51193051/?aid=MTAxMTYzNDk%3D" class="link" target="_blank">Appartamento in vendita in Viale Venezia 41,</a>
-      <span class="score">Score: 0.42</span>
-      <div class="meta">📍  | 85 m² | €295,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/50902893/" class="link" target="_blank">Appartamento in vendita in Via Marsala 38</a>
-      <span class="score">Score: 0.36</span>
-      <div class="meta">📍 Via Marsala 38 | 68 m² | €235,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/8lCAk5808CSt0dryDLJ46g~~/AAAHahA~/MXIygt54U3zOgyok43avNx8F0yZ5VbKyAxVc50ROvPtOOCBvUrnuCzJRcRVw5LWXOo_TdBvho07hviRO0qnS5J94hKPqKZTw8tqWTgu-flf59_bhyJ_qO9pvVUfYOrbh2OUYmkjmrK86rvI8iOOWCFG4zwqYK7FzDFuHBA9FrovnzXVvjlVSBjtlQK_lXYrEr7f8OC45in06TeXhhQJ-66ZlV7RdWL2aryWJdcPFdSPmo-y4DT_ICNtzRKUR--auqmywn39QMMlfz-GprCcM8g~~" class="link" target="_blank">﻿Attico via Lattanzio Gambara, Solferino - Diaz, Brescia﻿</a>
-      <span class="score">Score: 0.35</span>
-      <div class="meta">📍 Brescia﻿ | 78 m² | €199,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/l7VFG1Hr0d_26MMerm8Jpg~~/AAAHahA~/LRfSURe-XW0NOoBJSMqNSW09HZik3co6SYe6ksP3COg0r2rj9Udsd5AZ4DONFzPY8n_Ks4apuiZbdnEh3Wf0Y_ZW1TAkYVbNxOm9OWVRzvIjsI8XSpLkNHvdtkvKZGWXW_JNlfk1T1451QOKgg5fDEBwI4EeiDrI9K6yHqSK04ooHQVlm8o2ygPWo2KJZez7jWIP1t67rEu5t02H4PicXi6oNJLvV2_XQ9fANS7ZrcDGSrade9ktjLp9Wm-SIcKtWdd_xd6plb3rGI7L_eB_0Q~~" class="link" target="_blank">﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿</a>
-      <span class="score">Score: 0.35</span>
-      <div class="meta">📍 Brescia﻿ | 64 m² | €178,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/UA9vAQyYU19l8O648mQtKw~~/AAAHahA~/7YH7LNiyXLQJP_c1dgq7iOvkzeAWBBKJoURL9l48jNm3tbpNfb81CxhXZT1KJz-enPtR8f1owwW8msM6B1eWjd_nksreCwAKeD6uD-5ltRYLtuiraUExiSUQR6-TbOMPPRJCYPYKKvKvU9Kecj5x-nW4EZoXLHK8-lQ-XQtqsKMNiAa5_UE07g5Ip7aYkAc0U8OkzjJtvbJwefgkdTJ6Qim4IrzlHYb1MzQTu2wZobnByn2KS0fcC4v3dxNS2mMrn7rGp6S_Mn0fom9tYwQR9g~~" class="link" target="_blank">﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿</a>
-      <span class="score">Score: 0.35</span>
-      <div class="meta">📍 Brescia﻿ | 64 m² | €178,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://clicks.immobiliare.it/f/a/SOM0HEAhlEZy5pD8o6wtjw~~/AAAHahA~/Insirnbth_ffYMc5VQZna4Oca39jFzf_WU6WaTY-Wb_WYsauzrUuW3jEThRTtMPn5u0h0ZHPCRGN5dH5a_ciHQ1co_41JK0ALNTNt3EnF1b09ZaRoA3Fhm2BMLsmWQnAoPPbLGK8g87BnNumDIUg4PImPIojmPVGIy8DC22PlDyAlB_-U0l3YgVPgSxYTbx2TEKrFo-E6gbGr439aTuokLVWwmRidTg8k-uuU1MVkz21pTKufSSgWwmq3gjtbg3BE3Rg-E4zN1uOEwKoUeUwpw~~" class="link" target="_blank">﻿Bilocale via Teosa 2, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a>
-      <span class="score">Score: 0.34</span>
-      <div class="meta">📍 Brescia﻿ | 62 m² | €157,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51217516/?aid=MTAxMTU3NTc%3D" class="link" target="_blank">Appartamento in vendita in Via Vittorio Emanuele II,</a>
-      <span class="score">Score: 0.34</span>
-      <div class="meta">📍  | 61 m² | €220,000</div>
-    </div>
-    
-    <div class="card">
-      <a href="https://www.casa.it/immobili/51217516/" class="link" target="_blank">Appartamento in vendita in Via Vittorio Emanuele II</a>
-      <span class="score">Score: 0.32</span>
-      <div class="meta">📍 Via Vittorio Emanuele II | 61 m² | €220,000</div>
-    </div>
-    
-</body>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51255273/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Berardo Maggi 61,">Appartamento in vendita in Via Berardo Maggi 61,</a></div>
+          <span class="score-badge" style="background-color: #13ff00;" title="Score: 0.9623">
+             0.96
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €165,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 90 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-27 10:58</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51210568/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Arrigo Boito,">Appartamento in vendita in Via Arrigo Boito,</a></div>
+          <span class="score-badge" style="background-color: #2fff00;" title="Score: 0.9061">
+             0.91
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €169,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 95 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-21 10:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/r2VwKTTlchaykPAnTPEZFQ~~/AAAHahA~/lO8kYNp420V71g3fh_Dinaj_GcWG9Y4kxFJ0vVL1PDvYqf4lgHuFvKEhAzpE2rpguJFffcTJGnNVoUY3q_arxL9kEgm_Wyc1pHK9f6lHiQs0dgqjgaUEzkoEJUwI1USHMRV8jguH-UBjqo3fKavg4GaLKlSP_c_exQUbpS9URm4i7IdNnMoXe_JlZ0Zt8h7Tcp8iQnUvczkfBMBZ_4w0ksDW2jG1IdkEnQB7_9j_MRgCEQRC5w8BqHg1S73GaXqo2nLwUD71veK4ral5oFLoCw~~" target="_blank" title="﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #3fff00;" title="Score: 0.8757">
+             0.88
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €169,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 86 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-23 18:49</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/zws2cZ5ONsywqgwDUTmYzA~~/AAAHahA~/lO8kYNp420V71g3fh_Dinaj_GcWG9Y4kxFJ0vVL1PDvYqf4lgHuFvKEhAzpE2rpguJFffcTJGnNVoUY3q_arxL9kEgm_Wyc1pHK9f6lHiQs0dgqjgaUEzkoEJUwI1USHMRV8jguH-UBjqo3fKavg4GaLKlSP_c_exQUbpS9URm4i7IdNnMoXe_JlZ0Zt8h7TE-gKe1qZ7PJ9AyX4pzRAMrXlhVlfysdh-irTM3veafC0sct8uQOQ90LiA11VHGOewXN0uup1jbZ4KK8bs5icWw~~" target="_blank" title="﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #3fff00;" title="Score: 0.8757">
+             0.88
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €169,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 86 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-23 18:49</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51187280/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Berardo Maggi,">Appartamento in vendita in Via Berardo Maggi,</a></div>
+          <span class="score-badge" style="background-color: #44ff00;" title="Score: 0.8662">
+             0.87
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €200,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 105 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-21 10:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/48162648/?aid=MTAxMTYzNDk%3D" target="_blank" title="Appartamento in vendita">Appartamento in vendita</a></div>
+          <span class="score-badge" style="background-color: #5eff00;" title="Score: 0.8144">
+             0.81
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 85 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> vendita</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 10:07</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Gerolamo Savoldo 3,">Appartamento in vendita in Via Gerolamo Savoldo 3,</a></div>
+          <span class="score-badge" style="background-color: #60ff00;" title="Score: 0.8102">
+             0.81
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 86 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-21 10:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/15CivMbbdixAVNQNQKjSUA~~/AAAHahA~/2waUjI5hhFqT2d6t8T7g_uh3eQl6NpIL8e603LqajprO7n3WO8SIOFC3m2tBUJ0rHqPf2Y-a7pTYT4b_RlgiAYJRsSTe4O7gmHSjMYwgUGY8-NSSUGTak_WkTYkpzHSh1UzDifS-FK77KMGeGb7Rm9EgFSZdMO7U9xjbc9gbINqrs86TtbHqfL3Shm7MICzE7zZ5M4r0IBJZbYyU9amsyoYSz9w6zHI3yXTEM0whrY2vS33FGtIzFClmrUa4ToT1PZilTaPtjeei3FvP1jprng~~" target="_blank" title="﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿">﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #63ff00;" title="Score: 0.8044">
+             0.80
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 92 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 10:28</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/AYJ7tAQzImsxmL17NslsEQ~~/AAAHahA~/9qCh-QMCNZMqqPDGtUaJ7Lp-FJtQ0va1Eoo6ESsMLprG7snyfbTQ78-zdXTbNMd8dBU25YvaPRlXVQZGHxkVL15govkwC4xiY1k8z6HFxk9WLz1Rld_xZrIzwpfBAMTCjhMVWKu_nrPANO9njFI-Wgp4wJcbgyczk9wxlqzpHk_khtvMe29aDaW2JPmSnhHM7x8KkWu2WNFl9As5FGVbx6fVlWbY8LPGUoLHDLVcn-0PIP_erBrmno3qNdPKFU0CBhZLZgi75Vg9yaquGlG2tQ~~" target="_blank" title="﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿">﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #63ff00;" title="Score: 0.8043">
+             0.80
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 92 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 10:27</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/O8Wx8Bcj6e_vsAGjJyhKrQ~~/AAAHahA~/8o3I4aamOuRweHlO2v4a8WxWB378lddcSnOG-EazrGGPnIZ9SBxFK4LeyCe0Fsc7svMTibt-sumSRmcD6lrkUKpQxW3gtyXmq1QUF-vCezz5BjzM5-nt7Po0oq2DgWpXwkr5O3JsNrdK7NL7bHF_rUOWY3ksIiM8v8o6AdAivxEA9efTrws1BTvkLTJ_dCSDq-6KRnUIvXfywJw6mZEmnsuoNmFGPJq0ggq_0Zf4ukvhD-uyucrsQLtRifklWcA--X138ynxzLoIGdSUQwLhIw~~" target="_blank" title="﻿Bilocale via Sostegno, Brescia Due, Brescia﻿">﻿Bilocale via Sostegno, Brescia Due, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #64ff00;" title="Score: 0.8025">
+             0.80
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €125,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 65 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-16 16:46</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/I8SkdtIfoqHASks9ls8MEw~~/AAAHahA~/ZJwEsC2MaeoSzG5fuxV3huxANIqwg2E8xc7qmWP4C1UUlpxEp8hcCAh-U5-1Bj1FkgiPnlxeT7cqRL_OxPTWL_qsLev4SnCMyVDDGmuqMJxb5pPtSS1JByXvDd8QlOphu-7A1oejUDD6Awng2uvaWihABT1sK0OgHuS3_zn1WSp8DEWKWlbyyY8at8uDjQJVrhmi_0LU3WNRmpyJyQf3tiDqLQMigHmCEQ1cjQbIWCfkmLvXM8Uvt6DzrKoAhFQV6FSN0kX0u8wz6pr3-mcalg~~" target="_blank" title="﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿">﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #6dff00;" title="Score: 0.7858">
+             0.79
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 89 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 14:50</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/F7PDYf9-jxSb9SptPeelkQ~~/AAAHahA~/c4EdU33a_k-Yowlx0Jc7ynW-Sv0N8AmzFYEBA8toh-AXrgsTgOlfgEOWh2SMwHBBw7X38cp7ubBkpIJRGSbIy7pxnEhe_UVnn6UC1oU7ulwVrPpo5ZtVr7fh5Y3PuNJwqFYT5NGUQSW7WrrKvHP_1gS80Uj2CP4M3Fi4vI1Vl16uEm58Lp1il0yPnmJwQNGYcQ1eFua9Y2FV8AFShA1kWKwSx0-xDW2JD8Ooqnuww7E0SeBvCIwEAodW8Hq-vaB8i9j57VVK-E4uopBMavGRwQ~~" target="_blank" title="﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿">﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #6dff00;" title="Score: 0.7858">
+             0.79
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 89 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 14:49</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/NuRfYVivIWSTMVvjZrGzoQ~~/AAAHahA~/j6TZ9xfkdgCV4BnC_E1aZmsA8NsiJLtgEGMOXtutQPZTH-DrYjyWUaOhEpMAHub8eu07w_y5P67HWUUQOdDAsxurHeTZD0fAS5uG57UCHq-Mi_egUW2smedDA_WXuvo2HxGD-Ka99qKImJQpzHW3TwEaOprU3sYd7GOvLLyRsVzw7Ibf5vduhQhz1ND50gl4GZEM25UdndEG3n3HRNlamBjuN6QThP9buZfw96WKHNrt2bvfVWddU1RHUrETzdMNx7_GQC3U_MgnKMBkRiB_8w~~" target="_blank" title="﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿">﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #6fff00;" title="Score: 0.7821">
+             0.78
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €120,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 70 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-09 14:27</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/Idwfcyb5D5Q9AsFBRxSaaQ~~/AAAHahA~/_fe4IwQUQYf4Ir_0rgJrMTmnc17DEhVS3ktZS-EKiGAkz9VF-6t-ivgoWG_d1YkL1XZuF7WC8ogpC6SFTdDdhIR-G5fMsoXlZy3X45Et_u2rb9iU7un36yZs7jUKrwykkYtrjzpb-JL74xLNtUu5X4u7vS0FU7qt0tJ1x65Io_l07AYqB06Scxxpp-yDLvmu05FUXtrMXH-MCDqW50vAfCt-KaJP72QQZ-q_V3tX8kSYnsDTf4HZgRJ2LdsqZiwXj_u8GWvmKLjaXQfqEbrdjQ~~" target="_blank" title="﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿">﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #6fff00;" title="Score: 0.7821">
+             0.78
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €120,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 70 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-09 14:26</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/cpyy3mTE9rGCwvOrOwFAvw~~/AAAHahA~/GnyjwW0WOBGITfdYQzAZ5ZeRSuJoPloMISnP7NHJ4XGwXSn7dBArE5kKmhxPgf_IvwIQVN5IKh53OCQRVCFWZf1-ibTc_IwVzJo_abP80Ab1Yocb9D8c4XrPmZ5tI2aojARosl0MZP1h3xD-9PGpoiBz74n4d2lto_2_HgFlMhlAq7igM_55lSzBInqylcwg8mgnXmeuDLnlS3O8KkagQ11UepmzT7NGt7H1cBmV3ejwCGWjZxEBHV5EXsKiKlV-R6nqQSfkiZK7MWgbMonvKQ~~" target="_blank" title="﻿Trilocale via Corsica, Don Bosco, Brescia﻿">﻿Trilocale via Corsica, Don Bosco, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #83ff00;" title="Score: 0.7419">
+             0.74
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €197,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 92 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 09:43</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51211353/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via San Faustino,">Appartamento in vendita in Via San Faustino,</a></div>
+          <span class="score-badge" style="background-color: #b2ff00;" title="Score: 0.6507">
+             0.65
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €236,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 90 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 10:07</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/spXzps7uae9hwp8F6LgSlA~~/AAAHahA~/qYKD-Rz6RgplPKjYHszfIUyWZwFVzFoQ90BJ9d3QGFKx-pw3lhU3sxSzrmex4wXUWNAy_x1u19UF5A0HuoTJJIoMwQQywbdXvAidg0wzmXOIOCUUwLdZOBqy-s-MXeMFYUA1Z1UrMkvv6BvX_S_kPOM1al8I6atUo3GlesrSy63zBkKfFu-YQKdmAlEA5pmMPDhfTda392XQ8yzfvRiVT09B3Pa6Ss5TJlG4Q_6Z_NPYihloVfiU7wKKUN0UmkBNRMFhtiVd4tGoMFrZwIokKQ~~" target="_blank" title="﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿">﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #b5ff00;" title="Score: 0.6447">
+             0.64
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €159,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 60 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 15:38</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/V8tMKwILWc2P24p2fIY-mg~~/AAAHahA~/tSrqiSfS0TuYErHcanAfzlnMBSHmLZHMo1Rycf-NA4oSPZOXgoSUR5NK4ltA7av1H-AvHzXDq85Hf2pIFiq9D_LXambLCbfD6_VCcCOsJ09O8k-dlKqZyN18ocP8gglzS_3t6wZ6ZUxWxkcO7diMGfXu71sG1zHOlCKbJoSFL43eCxtnCBjwfli8pz9hE9g84J20RcTLf2WP0o-4rXMTv9d8fWf91qhnAnpVApEHTjhkbh0QCjb7IXd57mKj75SRkHRSeSZ6a8Jfs8sIrYkHMQ~~" target="_blank" title="﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿">﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #b5ff00;" title="Score: 0.6447">
+             0.64
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €159,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 60 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 15:38</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51351891/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Lamarmora,">Appartamento in vendita in Lamarmora,</a></div>
+          <span class="score-badge" style="background-color: #d8ff00;" title="Score: 0.5749">
+             0.57
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €290,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 100 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-23 10:19</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/P-7z-8qOjVgYS8JnlDo14g~~/AAAHahA~/OnQknli4n8_QhHRPPu8A3crhWThhq-sOmBoWtOCmx5xZX4bImvW-Kf0lYcJvk3_vZlazlVFRJIrpyBS5J8CxhMr6pXQRFHSUd0BV1EcMDwFDzWGBVnzyDukhx_nctFBcXdnk9pHGW5hc3hrxNQHoVxdeGrU3g5uZ8b1DxGkRXOsylhJXBDK4BvUUOSUpVM5O833pdDJ9tEUZCMEOj5VrvJj3O5HR4m5Cqxa6bv_9Z2xg-B5V2MOPX_SKIXmNjJhUkseYe6M_puAtrs4bX1TxLQ~~" target="_blank" title="﻿Trilocale via Giovanni Prati, Panoramica, Brescia﻿">﻿Trilocale via Giovanni Prati, Panoramica, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #dbff00;" title="Score: 0.5696">
+             0.57
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €148,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 80 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-26 17:04</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/50161992/?aid=MTAxMTYzNDk%3D" target="_blank" title="Appartamento in vendita in Via Moretto,">Appartamento in vendita in Via Moretto,</a></div>
+          <span class="score-badge" style="background-color: #ddff00;" title="Score: 0.5658">
+             0.57
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €289,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 100 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 10:07</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51362498/?aid=MTAxMTYzNDk%3D" target="_blank" title="Appartamento in vendita in Contrada del Carmine,">Appartamento in vendita in Contrada del Carmine,</a></div>
+          <span class="score-badge" style="background-color: #dfff00;" title="Score: 0.5621">
+             0.56
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €189,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 66 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-21 10:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/50562173/" target="_blank" title="Appartamento in vendita in Via Cremona 48">Appartamento in vendita in Via Cremona 48</a></div>
+          <span class="score-badge" style="background-color: #e0ff00;" title="Score: 0.5591">
+             0.56
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €298,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 105 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Via Cremona 48</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-20 12:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/48561413/" target="_blank" title="Appartamento in vendita in veneto">Appartamento in vendita in veneto</a></div>
+          <span class="score-badge" style="background-color: #e7ff00;" title="Score: 0.5465">
+             0.55
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €259,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 90 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> veneto</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-20 12:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/IneCESqW-VcJ_XYzHVFcWg~~/AAAHahA~/flMtRwa2-22V8FYjWBrsPE3lMyU76eFTillpViDMpf8v9JQmLz_qQh1N1AdyTmDStI_v3EeEEDsTyQaWT8LXTD2UR8Byyo5bbqXoAUhBvB3Fp5hamgzfTZywPLXuNlieS0MgwfYTQjbqqLaNeqBtc74Bhs3nqhFR2pI0IrYYbgqwynrHHLs7QhkhjMzpB3zjVIk0mwEHJlungxXAZXOy4jAtoUIEf7-RIUVI_GRfRzxiLlvyT62pjcTD--zqFUJ5CwQRFjxUOP2BW9c9XBt0gw~~" target="_blank" title="﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿">﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #f1ff00;" title="Score: 0.5272">
+             0.53
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €189,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 67 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 11:06</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/dnDfDXJz1e4HzQRLe3pqDA~~/AAAHahA~/cep6r2hd2AfY8Ksa8J6IFUyKopJQV2ZgIXALVJR-oL--SyxCHCh4rg0R8cdJ8RosnnJOgH-8vlWxmJ1JpHYzBL3xIUDSS_0xbS-wPf9TgKT4psz784RfREYPEvn3UmfCtUZ1AfmUA3_k1nKXkHnF1vCrncZ6tjDQWMzdS8hnnxV-A4Dhe823hGm1q8FxlITwWixs-b2QwWFsigGZoigd7o6vVBuBufFlsPem5-xbKn3wiEMGInadzHve0EOhaTqWti4_meXGyVV3KJzYQdr6bA~~" target="_blank" title="﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿">﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #f1ff00;" title="Score: 0.5271">
+             0.53
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €189,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 67 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-17 10:58</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51136927/" target="_blank" title="Appartamento in vendita in Corso Goffredo Mameli">Appartamento in vendita in Corso Goffredo Mameli</a></div>
+          <span class="score-badge" style="background-color: #f9ff00;" title="Score: 0.5112">
+             0.51
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €269,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 90 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Corso Goffredo Mameli</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-20 12:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51380746/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Sostegno 6,">Appartamento in vendita in Via Sostegno 6,</a></div>
+          <span class="score-badge" style="background-color: #faff00;" title="Score: 0.5098">
+             0.51
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €295,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 95 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-23 10:19</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/uu6QSnAxFv7rOxCSuoRauw~~/AAAHahA~/52thdwZ1WlB-vOEWdI_F0dkQ03u8HdN0MKDNDlo3ymC6f2uUw1bX2DlhY5p7mzV7P2f20jbASht9jvi-imioaPEVdcUWPd_KB0ss-cKlCJKgi2kO8vwwmaQhIRQZHlQKMQHwwr0FcLrjcqGBFdOe9ZPOEkpdsaOeuPn5ZuUoTMJjzT-Z7Sm7HowzSXFYbIpCLKEe8BfLpnkGGHFb1X8G5JARpxOcjGlPK_rJ1pbbDT5yK5bW24-yZY4SpQY7vQ3UZZLzQXr2qAjj7kLxO-42Sw~~" target="_blank" title="﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿">﻿Mansarda via Gerolamo Savoldo 3, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #fbff00;" title="Score: 0.5074">
+             0.51
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 86 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-27 15:09</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/Et4KscqqRqlGJ1yYW1kK2A~~/AAAHahA~/Ps8vR8dgZrewNM889ZBi4IbNf7JM-fSz2V502UbopnHQz_lDNn6iA0qf6sC25R5hmIwRu6HDh0kS5ek9s6KN_wJPjljAISjyFnk3e43X0X8V3qbTEUOcGqAv2x2KYlrsL_-IGdsH1UbhTay0mjHeFukDWo3JSdRisafuUDwv1mOUwUuPj59ZkPst_aXDpRU7ZYt0jmznn0V_Hu00dstUkbELF8Ssted812qco1iQeH8fKr-j5F9b5t346qCI4fd3h56OsjFlcJViPk-A7dpS6w~~" target="_blank" title="﻿Monolocale via Mantova 38, Porta Venezia, Brescia﻿">﻿Monolocale via Mantova 38, Porta Venezia, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffeb00;" title="Score: 0.4608">
+             0.46
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €189,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 83 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-28 21:28</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/vm-D7N2M0nDs3HTTMRf3Jw~~/AAAHahA~/w4bE40mUFFGz9L4aB9FAkmL0vKE_iGMJAeiOCgAC919HSZsRPJjVTwGZksiWuVd8JeV9Zlhe3QTNvhILgzkxdZpRGv2ifSVjGqmKSONM3JXogqpBlsjsCLMeiLpCDWWwCdtwI7sXEaEw6mkQXcQ726nx8373dU1iBNmjhgvXa1rb6LI3tmzKt1khnOy5OoqP9DH6FSFWP0B2qKJ5_b7UCcMCA8SQRL2_hs6fJDJY3clWUJq7yqXW9LjbJnVaf0yF0eQMd9JGrNU5atmShjrz8g~~" target="_blank" title="﻿Bilocale via delle Grazie 6, Loggia - Garibaldi, Brescia﻿">﻿Bilocale via delle Grazie 6, Loggia - Garibaldi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffe700;" title="Score: 0.4537">
+             0.45
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €179,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 80 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-27 06:45</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/5C7QYwPLhwAbRYrKuR_oRA~~/AAAHahA~/nmoZF1ZwCJeOhTmE4-AJRf6ahxey1i__GM24KR1LWe54CSaiS9RT7HuhDG4evHwvrfgOLCJu_-Kl5FgyjO0j3nKJLLSXIXUux8k_0GtaPcvBWoifRhrZcvibLp6CIL6pojkw-PBw0KVolwFJKf0eO70PqhzbSLOs5UckiLL5TV2H4UjrnRwr8CO5pRmHmdhLcXgf1NYiC_gCByqoW2G1OqhD5l1AVTKG--IfBvJxMeaL3Xd0vUUKijz-QxPMhsptilJDsB1048LJqBIRNf3NEg~~" target="_blank" title="﻿Trilocale via Corsica 76, Don Bosco, Brescia﻿">﻿Trilocale via Corsica 76, Don Bosco, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffe300;" title="Score: 0.4451">
+             0.45
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €197,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 85 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-28 15:52</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51193051/?aid=MTAxMTYzNDk%3D" target="_blank" title="Appartamento in vendita in Viale Venezia 41,">Appartamento in vendita in Viale Venezia 41,</a></div>
+          <span class="score-badge" style="background-color: #ffd500;" title="Score: 0.4187">
+             0.42
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €295,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 85 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-25 10:55</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/50902893/" target="_blank" title="Appartamento in vendita in Via Marsala 38">Appartamento in vendita in Via Marsala 38</a></div>
+          <span class="score-badge" style="background-color: #ffb900;" title="Score: 0.3638">
+             0.36
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €235,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 68 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Via Marsala 38</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-20 13:46</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/8lCAk5808CSt0dryDLJ46g~~/AAAHahA~/MXIygt54U3zOgyok43avNx8F0yZ5VbKyAxVc50ROvPtOOCBvUrnuCzJRcRVw5LWXOo_TdBvho07hviRO0qnS5J94hKPqKZTw8tqWTgu-flf59_bhyJ_qO9pvVUfYOrbh2OUYmkjmrK86rvI8iOOWCFG4zwqYK7FzDFuHBA9FrovnzXVvjlVSBjtlQK_lXYrEr7f8OC45in06TeXhhQJ-66ZlV7RdWL2aryWJdcPFdSPmo-y4DT_ICNtzRKUR--auqmywn39QMMlfz-GprCcM8g~~" target="_blank" title="﻿Attico via Lattanzio Gambara, Solferino - Diaz, Brescia﻿">﻿Attico via Lattanzio Gambara, Solferino - Diaz, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffb000;" title="Score: 0.3464">
+             0.35
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €199,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 78 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-26 15:28</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/l7VFG1Hr0d_26MMerm8Jpg~~/AAAHahA~/LRfSURe-XW0NOoBJSMqNSW09HZik3co6SYe6ksP3COg0r2rj9Udsd5AZ4DONFzPY8n_Ks4apuiZbdnEh3Wf0Y_ZW1TAkYVbNxOm9OWVRzvIjsI8XSpLkNHvdtkvKZGWXW_JNlfk1T1451QOKgg5fDEBwI4EeiDrI9K6yHqSK04ooHQVlm8o2ygPWo2KJZez7jWIP1t67rEu5t02H4PicXi6oNJLvV2_XQ9fANS7ZrcDGSrade9ktjLp9Wm-SIcKtWdd_xd6plb3rGI7L_eB_0Q~~" target="_blank" title="﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿">﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffb000;" title="Score: 0.3462">
+             0.35
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €178,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 64 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-01 14:26</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/UA9vAQyYU19l8O648mQtKw~~/AAAHahA~/7YH7LNiyXLQJP_c1dgq7iOvkzeAWBBKJoURL9l48jNm3tbpNfb81CxhXZT1KJz-enPtR8f1owwW8msM6B1eWjd_nksreCwAKeD6uD-5ltRYLtuiraUExiSUQR6-TbOMPPRJCYPYKKvKvU9Kecj5x-nW4EZoXLHK8-lQ-XQtqsKMNiAa5_UE07g5Ip7aYkAc0U8OkzjJtvbJwefgkdTJ6Qim4IrzlHYb1MzQTu2wZobnByn2KS0fcC4v3dxNS2mMrn7rGp6S_Mn0fom9tYwQR9g~~" target="_blank" title="﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿">﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffb000;" title="Score: 0.3462">
+             0.35
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €178,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 64 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-01 14:25</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://clicks.immobiliare.it/f/a/SOM0HEAhlEZy5pD8o6wtjw~~/AAAHahA~/Insirnbth_ffYMc5VQZna4Oca39jFzf_WU6WaTY-Wb_WYsauzrUuW3jEThRTtMPn5u0h0ZHPCRGN5dH5a_ciHQ1co_41JK0ALNTNt3EnF1b09ZaRoA3Fhm2BMLsmWQnAoPPbLGK8g87BnNumDIUg4PImPIojmPVGIy8DC22PlDyAlB_-U0l3YgVPgSxYTbx2TEKrFo-E6gbGr439aTuokLVWwmRidTg8k-uuU1MVkz21pTKufSSgWwmq3gjtbg3BE3Rg-E4zN1uOEwKoUeUwpw~~" target="_blank" title="﻿Bilocale via Teosa 2, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿">﻿Bilocale via Teosa 2, Villaggio Ferrari - Duca degli Abruzzi, Brescia﻿</a></div>
+          <span class="score-badge" style="background-color: #ffad00;" title="Score: 0.3406">
+             0.34
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €157,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 62 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Brescia﻿</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-03-25 16:16</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51217516/?aid=MTAxMTU3NTc%3D" target="_blank" title="Appartamento in vendita in Via Vittorio Emanuele II,">Appartamento in vendita in Via Vittorio Emanuele II,</a></div>
+          <span class="score-badge" style="background-color: #ffac00;" title="Score: 0.3386">
+             0.34
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €220,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 61 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> </div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-22 10:07</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><a href="https://www.casa.it/immobili/51217516/" target="_blank" title="Appartamento in vendita in Via Vittorio Emanuele II">Appartamento in vendita in Via Vittorio Emanuele II</a></div>
+          <span class="score-badge" style="background-color: #ffa000;" title="Score: 0.3154">
+             0.32
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="detail-item"><span class="label">💶</span><strong>Price:</strong> €220,000 (N/A)</div>
+          <div class="detail-item"><span class="label">📐</span><strong>Size:</strong> 61 m²</div>
+          <div class="detail-item"><span class="label">📍</span><strong>Location:</strong> Via Vittorio Emanuele II</div>
+          <div class="detail-item"><span class="label">🏢</span><strong>Source:</strong> N/A</div>
+        </div>
+        <div class="card-footer">
+          <span><span title="Email Received Date">📥</span> 2025-04-20 12:34</span>
+          <span><span title="Last Seen in Scrape">👀</span> N/A</span>
+        </div>
+      </div>
+      
+    </div> </div> </body>
 </html>
