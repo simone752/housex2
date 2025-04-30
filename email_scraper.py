@@ -4,512 +4,532 @@ from email import policy, utils
 from bs4 import BeautifulSoup
 import json
 import os
-import re
 from dotenv import load_dotenv
 from datetime import datetime, timedelta, timezone
-import logging # Use the logging module for better output control
+import re
+import string # Import string for punctuation removal
 
-# --- Configuration ---
 # Load environment variables
 load_dotenv()
 
 IMAP_SERVER = 'imapmail.libero.it'
 EMAIL_ACCOUNT = os.getenv('EMAIL_ACCOUNT')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
-
 LISTINGS_FILE = 'listings.json'
-
-# Filtering Criteria
-BAD_KEYWORDS = ['stazione', 'asta', 'affitto', 'garage', 'box'] # Added garage/box
+BAD_KEYWORDS = ['stazione', 'asta', 'affitto'] # Keywords indicating unwanted listings
 MAX_SQUARE_METERS = 105
 MIN_SQUARE_METERS = 60
-MAX_LISTING_AGE = timedelta(days=30) # Consider if older listings are still relevant
-MIN_PRICE_PER_SQM = 1700 # Minimum acceptable price per square meter
+MAX_LISTING_AGE = timedelta(days=30) # Max age based on email received time
+MIN_PRICE_PER_SQM = 1700
+SIMILARITY_WORD_SEQUENCE = 5 # Number of consecutive words to consider for similarity
 
-# Scoring Weights (Price vs Recency) - Adjust as needed
-PRICE_WEIGHT = 0.6 # How much lower price matters (0 to 1)
-RECENCY_WEIGHT = 0.4 # How much newer listing matters (0 to 1)
 
-# Email Search Query (Consider making this broader if needed)
-# Alternative: Search by subject keywords like 'nuovi annunci' if sender varies
-EMAIL_SEARCH_QUERY = '(OR FROM "noreply@notifiche.immobiliare.it" FROM "noreply_at_casa.it_4j78rss9@duck.com")'
-# EMAIL_SEARCH_QUERY = '(SUBJECT "nuovi annunci")' # Example alternative
-
-# Logging Setup
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-# --- Core Functions ---
-
-def connect_to_mail():
-    """Connects to the IMAP server."""
+def connect_mail():
+    """Connects to the IMAP server and logs in."""
     try:
         mail = imaplib.IMAP4_SSL(IMAP_SERVER)
         mail.login(EMAIL_ACCOUNT, EMAIL_PASSWORD)
-        logging.info("✅ Connected to email account")
+        print("✅ Connected to email")
         return mail
+    except imaplib.IMAP4.error as e:
+        print(f"❌ IMAP Connection error: {e}")
+        raise # Re-raise the exception to stop execution if connection fails
+
+
+def load_listings():
+    """Loads existing listings from the JSON file."""
+    if not os.path.exists(LISTINGS_FILE) or os.path.getsize(LISTINGS_FILE) == 0:
+        print("ℹ️ Listings file not found or empty. Starting fresh.")
+        return []
+    try:
+        with open(LISTINGS_FILE, 'r', encoding='utf-8') as f:
+            listings = json.load(f)
+            print(f"✅ Loaded {len(listings)} existing listings.")
+            return listings
+    except json.JSONDecodeError:
+        print(f"⚠️ {LISTINGS_FILE} is invalid or corrupted. Starting fresh.")
+        return []
     except Exception as e:
-        logging.error(f"❌ Error connecting to email: {e}")
-        raise # Re-raise the exception to stop the script if connection fails
+        print(f"❌ Error loading listings: {e}")
+        return [] # Return empty list on other errors
 
-def load_existing_listings(filename=LISTINGS_FILE):
-    """Loads existing listings from a JSON file."""
-    if os.path.exists(filename):
-        with open(filename, 'r', encoding='utf-8') as f:
-            try:
-                return json.load(f)
-            except json.JSONDecodeError:
-                logging.warning(f"⚠️ Could not decode JSON from {filename}. Starting fresh.")
-                return []
-    return []
 
-def save_listings(listings, filename=LISTINGS_FILE):
-    """Saves listings to a JSON file."""
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(listings, f, indent=2, ensure_ascii=False)
-    logging.info(f"💾 Saved {len(listings)} listings to {filename}")
+def save_listings(listings):
+    """Saves the list of listings to the JSON file."""
+    try:
+        with open(LISTINGS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(listings, f, indent=2, ensure_ascii=False)
+        print(f"💾 Saved {len(listings)} listings to {LISTINGS_FILE}")
+    except Exception as e:
+        print(f"❌ Error saving listings: {e}")
 
-def clean_text(text):
-    """Utility to clean whitespace and standardize text."""
-    return ' '.join(text.split())
 
-def extract_number(text, is_float=True):
-    """Extracts the first number (int or float) from a string."""
-    if not text:
-        return None
-    # Remove thousands separators (dots), replace comma decimal separator with dot
-    text = text.replace('.', '').replace(',', '.')
-    # Find the first sequence of digits, possibly with a decimal point
-    match = re.search(r'(\d[\d\.]*)', text)
-    if match:
-        try:
-            if is_float:
-                return float(match.group(1))
-            else:
-                # For integers like square meters, handle potential floats from bad parsing
-                return int(float(match.group(1)))
-        except ValueError:
-            logging.warning(f"⚠️ Could not convert '{match.group(1)}' to number from text: '{text}'")
-            return None
-    return None
+def normalize_name(name):
+    """Normalizes a listing name for comparison."""
+    name = name.lower()
+    # Remove punctuation more thoroughly
+    name = name.translate(str.maketrans('', '', string.punctuation))
+    # Split into words and remove empty strings resulting from multiple spaces
+    return [word for word in name.split() if word]
 
-# --- Parsing Logic (Key Area for Improvement) ---
 
-def parse_immobiliare(soup, received_time):
-    """Parses listings from Immobiliare.it email HTML."""
+def are_names_similar(name1, name2, min_sequence=SIMILARITY_WORD_SEQUENCE):
+    """Checks if two names share a sequence of at least min_sequence words."""
+    words1 = normalize_name(name1)
+    words2 = normalize_name(name2)
+
+    if not words1 or not words2 or len(words1) < min_sequence or len(words2) < min_sequence:
+        return False # Not enough words to compare
+
+    # Create sets of n-grams (sequences of words) for efficient comparison
+    ngrams1 = set()
+    for i in range(len(words1) - min_sequence + 1):
+        ngrams1.add(tuple(words1[i:i + min_sequence]))
+
+    ngrams2 = set()
+    for i in range(len(words2) - min_sequence + 1):
+        ngrams2.add(tuple(words2[i:i + min_sequence]))
+
+    # Return True if there is any common sequence
+    return not ngrams1.isdisjoint(ngrams2)
+
+
+def extract_listings_from_email(body, received_time):
+    """Extracts listing details from email HTML content."""
+    soup = BeautifulSoup(body, 'html.parser')
     results = []
-    # Try finding listing containers first - This might be more robust than finding links directly
-    # Inspect the email HTML structure carefully to find reliable container elements.
-    # Example: Find table rows that seem to contain listing info.
-    # This selector is hypothetical - ADJUST IT BASED ON ACTUAL EMAIL HTML
-    listing_blocks = soup.find_all('tr', class_='listing-row') # Hypothetical class
+    now_iso = datetime.now(timezone.utc).isoformat()
 
-    if not listing_blocks:
-        # Fallback to original link-based method if the above fails
-        listing_blocks = soup.find_all('a', href=re.compile(r'https://clicks\.immobiliare\.it/'))
-
-    logging.info(f"Found {len(listing_blocks)} potential immobiliare.it blocks/links.")
-
-    for block in listing_blocks:
+    # --- IMMOBILIARE.IT listings ---
+    # Find listing blocks first if possible, then extract details relative to the block
+    # This example keeps the original logic but acknowledges it might be fragile
+    immo_tags = soup.find_all('a', href=re.compile(r'https://clicks\.immobiliare\.it/'), style=re.compile(r'color:\s*#0074c1'))
+    for tag in immo_tags:
         listing = {
+            'name': ' '.join(tag.text.split()), # Normalize whitespace
+            'link': tag['href'],
+            'square_meters': None,
+            'price': None,
+            'location': 'Unknown',
             'source': 'immobiliare.it',
-            'name': None,
-            'link': None,
-            'square_meters': None,
-            'price': None,
-            'price_per_sqm': None, # Add this field
-            'location': '',
-            'received_time': received_time,
-            'extracted_time': datetime.now(timezone.utc).isoformat(),
-            'score': 0.0 # Initialize score
+            'extracted_time': now_iso,
+            'received_time': received_time
         }
-        try:
-            # Find the primary link within the block
-            link_tag = block if block.name == 'a' else block.find('a', href=re.compile(r'https://clicks\.immobiliare\.it/'))
-            if not link_tag or not link_tag.get('href'):
-                 logging.debug("Skipping block, no valid immobiliare.it link found.")
-                 continue # Skip if no valid link found
 
-            listing['link'] = link_tag['href']
-            listing['name'] = clean_text(link_tag.get_text(strip=True))
+        # Try finding details based on surrounding elements (adjust selectors if HTML changes)
+        parent_td = tag.find_parent('td')
+        if parent_td:
+            features_td = parent_td.find_next_sibling('td', class_='realEstateBlock__features')
+            if features_td:
+                sqm_match = re.search(r'(\d+)\s*m[²2]', features_td.text) # Handle m² and m2
+                if sqm_match:
+                    listing['square_meters'] = int(sqm_match.group(1))
 
-            # --- Extract Details (Needs careful adjustment based on HTML) ---
-            # This part is fragile. Inspect the HTML around the link tag.
-            # Use relative positioning (find_parent, find_next_sibling) or more specific selectors.
+            price_td = parent_td.find_next_sibling('td', class_='realEstateBlock__price')
+            if price_td:
+                price_text = price_td.text.replace('€', '').replace('.', '').replace(',', '.').strip()
+                price_match = re.search(r'^([\d\.]+)', price_text) # Match price at the start
+                if price_match:
+                    try:
+                        listing['price'] = float(price_match.group(1))
+                    except ValueError:
+                        print(f"⚠️ Could not parse price: {price_td.text.strip()}")
 
-            # Example 1: Assuming price and sqm are in sibling TDs of the link's parent TD
-            parent_td = link_tag.find_parent('td')
-            if parent_td:
-                features_td = parent_td.find_next_sibling('td', class_='realEstateBlock__features') # Old class, might change
-                if features_td:
-                    # More robust regex for sqm
-                    match = re.search(r'(\d+)\s*m[q²]', features_td.get_text(strip=True), re.IGNORECASE)
-                    if match:
-                        listing['square_meters'] = extract_number(match.group(1), is_float=False)
+        results.append(listing)
 
-                price_td = parent_td.find_next_sibling('td', class_='realEstateBlock__price') # Old class, might change
-                if price_td:
-                    listing['price'] = extract_number(price_td.get_text(strip=True), is_float=True)
-
-            # Example 2: Fallback - search within the entire block if the above fails
-            if listing['square_meters'] is None:
-                 sqm_match = re.search(r'(\d+)\s*m[q²]', block.get_text(strip=True), re.IGNORECASE)
-                 if sqm_match:
-                     listing['square_meters'] = extract_number(sqm_match.group(1), is_float=False)
-
-            if listing['price'] is None:
-                 # Look for € symbol followed by numbers
-                 price_match = re.search(r'€\s*([\d\.,]+)', block.get_text(strip=True))
-                 if price_match:
-                     listing['price'] = extract_number(price_match.group(1), is_float=True)
-
-            # --- Add to results if essential data found ---
-            if listing['link'] and listing['name']: # Require at least link and name
-                results.append(listing)
-            else:
-                logging.debug(f"Skipping partial immobiliare.it data: Link={listing['link']}, Name={listing['name']}")
-
-        except Exception as e:
-            logging.warning(f"⚠️ Parsing immobiliare.it block failed: {e}. Block content: {str(block)[:200]}...") # Log part of the failing block
-
-    logging.info(f"Successfully parsed {len(results)} immobiliare.it listings from this email.")
-    return results
-
-
-def parse_casait(soup, received_time):
-    """Parses listings from Casa.it email HTML."""
-    results = []
-    # Try finding container elements. ADJUST SELECTOR based on actual HTML.
-    # Example: Look for divs that seem to wrap each listing.
-    listing_blocks = soup.find_all('div', class_='listing-wrapper') # Hypothetical class
-
-    if not listing_blocks:
-        # Fallback to original link-based method
-        listing_blocks = soup.find_all('a', href=re.compile(r'https://www\.casa\.it/immobili/'))
-
-    logging.info(f"Found {len(listing_blocks)} potential casa.it blocks/links.")
-
-    for block in listing_blocks:
+    # --- CASA.IT listings ---
+    casa_tags = soup.find_all('a', href=re.compile(r'https://www\.casa\.it/immobili/'), style=re.compile(r'color:\s*#1A1F24'))
+    for tag in casa_tags:
         listing = {
-            'source': 'casa.it',
-            'name': None,
-            'link': None,
+            'name': ' '.join(tag.text.split()), # Normalize whitespace
+            'link': tag['href'],
             'square_meters': None,
             'price': None,
-            'price_per_sqm': None, # Add this field
-            'location': '',
-            'received_time': received_time,
-            'extracted_time': datetime.now(timezone.utc).isoformat(),
-            'score': 0.0 # Initialize score
+            'location': 'Unknown',
+            'source': 'casa.it',
+            'extracted_time': now_iso,
+            'received_time': received_time
         }
-        try:
-            # Find the primary link
-            link_tag = block if block.name == 'a' else block.find('a', href=re.compile(r'https://www\.casa\.it/immobili/'))
-            if not link_tag or not link_tag.get('href'):
-                logging.debug("Skipping block, no valid casa.it link found.")
-                continue
 
-            listing['link'] = link_tag['href']
-            # Try to get name from a specific tag within the link or the link text itself
-            title_tag = link_tag.find('h3') # Example: Check if title is in an H3 inside the link
-            listing['name'] = clean_text(title_tag.get_text(strip=True) if title_tag else link_tag.get_text(strip=True))
+        # Try finding details based on surrounding elements
+        # NOTE: These selectors based on inline styles are very fragile!
+        container = tag.find_parent() # Need a more specific container if possible
+        if container:
+             # Attempt to find size based on text pattern or sibling/nearby elements
+             # This part is highly dependent on the exact email structure
+             size_tag = container.find('span', text=re.compile(r'\d+\s*m[²2]')) # More direct search
+             if not size_tag: # Fallback to style (less reliable)
+                 size_tag = container.find('span', style=re.compile(r'padding-right:\s*10px'))
 
+             if size_tag:
+                sqm_match = re.search(r'(\d+)', size_tag.text)
+                if sqm_match:
+                    listing['square_meters'] = int(sqm_match.group(1))
 
-            # --- Extract Details (Needs careful adjustment based on HTML) ---
-            # Search within the entire block text for keywords and numbers. Less precise but more robust to structure changes.
+             # Attempt to find price
+             price_tag = container.find('span', style=re.compile(r'font-weight:\s*bold')) # Fragile selector
+             if price_tag:
+                price_text = price_tag.text.replace('€', '').replace('.', '').replace(',', '.').strip()
+                price_match = re.search(r'^([\d\.]+)', price_text)
+                if price_match:
+                    try:
+                        listing['price'] = float(price_match.group(1))
+                    except ValueError:
+                         print(f"⚠️ Could not parse price: {price_tag.text.strip()}")
 
-            block_text = block.get_text(" ", strip=True) # Get all text within the block
+        results.append(listing)
 
-            # Extract Square Meters (look for number followed by 'mq' or 'm²')
-            sqm_match = re.search(r'(\d+)\s*m[q²]', block_text, re.IGNORECASE)
-            if sqm_match:
-                listing['square_meters'] = extract_number(sqm_match.group(1), is_float=False)
-            else:
-                # Fallback: Look for specific styled spans if primary fails (less reliable)
-                size_tag = block.find('span', style=re.compile(r'padding-right:\s*10px')) # Old style, might change
-                if size_tag:
-                     listing['square_meters'] = extract_number(size_tag.get_text(strip=True), is_float=False)
-
-
-            # Extract Price (look for € symbol followed by numbers)
-            price_match = re.search(r'€\s*([\d\.,]+)', block_text)
-            if price_match:
-                 listing['price'] = extract_number(price_match.group(1), is_float=True)
-            else:
-                # Fallback: Look for specific styled spans (less reliable)
-                price_tag = block.find('span', style=re.compile(r'font-weight:\s*bold')) # Old style, might change
-                if price_tag:
-                    listing['price'] = extract_number(price_tag.get_text(strip=True), is_float=True)
-
-
-            # --- Add to results if essential data found ---
-            if listing['link'] and listing['name']:
-                results.append(listing)
-            else:
-                logging.debug(f"Skipping partial casa.it data: Link={listing['link']}, Name={listing['name']}")
-
-
-        except Exception as e:
-            logging.warning(f"⚠️ Parsing casa.it block failed: {e}. Block content: {str(block)[:200]}...")
-
-    logging.info(f"Successfully parsed {len(results)} casa.it listings from this email.")
+    print(f"    Extracted {len(results)} potential listings from email.")
     return results
 
-# --- Processing and Filtering ---
 
-def validate_and_enrich_listing(listing):
-    """Validates listing based on criteria and calculates price per sqm."""
-    # Basic check for essential data parsed
-    if not all([listing.get('name'), listing.get('square_meters'), listing.get('price'), listing.get('received_time')]):
-        logging.debug(f"Invalid: Missing essential data - {listing.get('link') or 'No Link'}")
-        return None # Return None if invalid
-
+def validate_listing(listing):
+    """Validates a single listing based on defined criteria."""
     name_lower = listing['name'].lower()
 
-    # Check for bad keywords
     if any(bad in name_lower for bad in BAD_KEYWORDS):
-        logging.debug(f"Invalid: Contains bad keyword - {listing['name']}")
-        return None
+        # print(f"    🏷️ Skipped (bad keyword): {listing['name'][:50]}...")
+        return False, "Bad Keyword"
+    if not listing['square_meters']:
+        # print(f"    🏷️ Skipped (missing sq m): {listing['name'][:50]}...")
+        return False, "Missing SqM"
+    if not listing['price']:
+        # print(f"    🏷️ Skipped (missing price): {listing['name'][:50]}...")
+        return False, "Missing Price"
 
-    # Validate square meters
     sqm = listing['square_meters']
-    if not (MIN_SQUARE_METERS <= sqm <= MAX_SQUARE_METERS):
-        logging.debug(f"Invalid: Sqm out of range ({sqm}) - {listing['name']}")
-        return None
-
-    # Calculate and validate price per square meter
     price = listing['price']
-    price_per_sqm = round(price / sqm, 2)
-    listing['price_per_sqm'] = price_per_sqm # Store calculated value
+
+    if not (MIN_SQUARE_METERS <= sqm <= MAX_SQUARE_METERS):
+        # print(f"    🏷️ Skipped (size {sqm}sqm): {listing['name'][:50]}...")
+        return False, f"Size {sqm}sqm"
+
+    # Calculate price per square meter safely
+    try:
+        price_per_sqm = price / sqm
+    except ZeroDivisionError:
+        # print(f"    🏷️ Skipped (zero sq m): {listing['name'][:50]}...")
+        return False, "Zero SqM"
 
     if price_per_sqm < MIN_PRICE_PER_SQM:
-        logging.debug(f"Invalid: Price per sqm too low ({price_per_sqm}) - {listing['name']}")
-        return None
+        # print(f"    🏷️ Skipped (price/sqm {price_per_sqm:.0f} €/m²): {listing['name'][:50]}...")
+        return False, f"Price/SqM {price_per_sqm:.0f}"
 
-    # Validate listing age
+    # Check listing age based on email received time
     try:
         received_dt = datetime.fromisoformat(listing['received_time'])
         if datetime.now(timezone.utc) - received_dt > MAX_LISTING_AGE:
-            logging.debug(f"Invalid: Listing too old ({listing['received_time']}) - {listing['name']}")
-            return None
+            # print(f"    🏷️ Skipped (too old, received {received_dt.date()}): {listing['name'][:50]}...")
+            return False, "Too Old"
     except ValueError:
-         logging.warning(f"⚠️ Could not parse received_time: {listing.get('received_time')} for {listing.get('link')}")
-         return None # Treat unparseable date as invalid
+         print(f"    ⚠️ Could not parse received_time: {listing['received_time']}")
+         return False, "Invalid Date" # Treat as invalid if date is wrong
 
-    # Attempt to extract location (Improved slightly)
-    try:
-        parts = listing['name'].split(',')
-        if len(parts) > 1:
-            # Take the last part, attempt to remove leading/trailing specifics like postal codes or province abbreviations
-            location_raw = parts[-1].strip()
-            # Remove trailing (XX) style province codes or leading ZIP codes
-            location_clean = re.sub(r'\(\w{2}\)$', '', location_raw).strip()
-            location_clean = re.sub(r'^\d{5}\s*', '', location_clean).strip()
-            listing['location'] = location_clean
-        elif ' in ' in listing['name']: # Keep the 'in' check as fallback
-            location_raw = listing['name'].split(' in ')[-1].strip()
-            listing['location'] = re.sub(r'\(\w{2}\)$', '', location_raw).strip() # Clean trailing (XX) here too
-        else:
-             listing['location'] = "Unknown" # Default if no pattern matches
-    except Exception as e:
-        logging.warning(f"⚠️ Error extracting location from '{listing['name']}': {e}")
-        listing['location'] = "Error"
+    # Try to extract location (simple approach)
+    name_parts = listing['name'].split(',')
+    if len(name_parts) > 1:
+        listing['location'] = name_parts[-1].strip()
+    else:
+        # Fallback: check for ' in ' pattern
+        if ' in ' in name_lower:
+           listing['location'] = listing['name'].split(' in ')[-1].strip()
 
-    logging.debug(f"Valid listing: {listing['name']} ({listing['price_per_sqm']} €/mq)")
-    return listing # Return the enriched listing dictionary if valid
+    # print(f"    ✅ Valid listing: {listing['name'][:50]}...")
+    return True, "Valid"
 
-def compute_scores(listings):
-    """Computes a score for each listing based on price/sqm and recency."""
+
+def compute_score(listings):
+    """Computes a score for each listing based on price/sqm and age."""
     if not listings:
         return []
 
-    # Filter out listings that might miss price_per_sqm or received_time after validation/enrichment phase
-    valid_listings = [l for l in listings if l.get('price_per_sqm') and l.get('received_time')]
-    if not valid_listings:
-         logging.warning("⚠️ No listings with valid price/sqm and received_time found for scoring.")
-         return listings # Return original list if none are scorable
+    valid_listings = []
+    prices = []
+    times = []
 
-    prices = [l['price_per_sqm'] for l in valid_listings]
-    try:
-        times = [datetime.fromisoformat(l['received_time']).timestamp() for l in valid_listings]
-    except ValueError as e:
-        logging.error(f"❌ Error converting received_time to timestamp during scoring: {e}. Cannot compute scores.")
-        return listings # Return original list if time conversion fails
+    # Filter out listings missing necessary data for scoring and gather data
+    for l in listings:
+        if l.get('price') and l.get('square_meters') and l.get('received_time'):
+             try:
+                 price_per_sqm = l['price'] / l['square_meters']
+                 timestamp = datetime.fromisoformat(l['received_time']).timestamp()
+                 prices.append(price_per_sqm)
+                 times.append(timestamp)
+                 valid_listings.append(l)
+             except (ZeroDivisionError, ValueError, TypeError):
+                 # Add listing anyway but without score or give it a default low score
+                 l['score'] = 0.0
+                 valid_listings.append(l) # Keep it in the list, just unscoreable
+
+    if not prices or not times: # No scoreable listings
+        print("⚠️ No listings with sufficient data to compute scores.")
+        return valid_listings # Return potentially modified list
 
     min_price, max_price = min(prices), max(prices)
     min_time, max_time = min(times), max(times)
 
-    # Add scores to the original list items by matching link or another unique ID
-    # This is safer if valid_listings is a subset
-    for listing in listings:
-         if listing in valid_listings:
-            idx = valid_listings.index(listing) # Find corresponding index
-            price_per_sqm = prices[idx]
-            timestamp = times[idx]
+    # Assign scores
+    price_idx = 0
+    time_idx = 0
+    for listing in valid_listings:
+         # Check if this listing was scoreable
+        if listing.get('price') and listing.get('square_meters') and listing.get('received_time'):
+            try:
+                current_price_per_sqm = prices[price_idx]
+                current_timestamp = times[time_idx]
 
-            # Normalize price (lower is better, so invert: 1 - normalized)
-            # Handle division by zero if all prices/times are identical
-            norm_price = (price_per_sqm - min_price) / (max_price - min_price) if max_price > min_price else 0
-            inverted_norm_price = 1.0 - norm_price
+                # Normalize: Lower price/sqm is better (closer to 1), Newer time is better (closer to 1)
+                norm_price = (max_price - current_price_per_sqm) / (max_price - min_price) if max_price != min_price else 1
+                norm_time = (current_timestamp - min_time) / (max_time - min_time) if max_time != min_time else 1
 
-            # Normalize time (higher timestamp is better)
-            norm_time = (timestamp - min_time) / (max_time - min_time) if max_time > min_time else 1.0 # Newest gets 1
+                # Weighted score (e.g., 60% price, 40% time)
+                score = 0.6 * norm_price + 0.4 * norm_time
+                listing['score'] = round(score, 4)
 
-            # Calculate weighted score
-            listing['score'] = round(PRICE_WEIGHT * inverted_norm_price + RECENCY_WEIGHT * norm_time, 4)
-         else:
-            # Assign default score or handle listings that couldn't be scored
-            listing['score'] = 0.0
+                price_idx += 1
+                time_idx += 1
+            except (IndexError, ZeroDivisionError, ValueError, TypeError):
+                 listing['score'] = 0.0 # Assign default score on error
 
-    # Sort all listings by score (descending)
-    listings.sort(key=lambda l: l.get('score', 0.0), reverse=True)
-    logging.info(f"📊 Computed scores for {len(valid_listings)} listings.")
-    return listings
-
-# --- Main Execution Logic ---
-
-def scrape_emails():
-    """Main function to connect, fetch, parse, filter, score, and save listings."""
-    mail = connect_to_mail() # Will exit if connection fails
-    mail.select('inbox') # Select mailbox (add error handling if needed)
-
-    logging.info(f"🔍 Searching mailbox with query: {EMAIL_SEARCH_QUERY}")
-    status, data = mail.search(None, EMAIL_SEARCH_QUERY)
-
-    if status != 'OK' or not data or not data[0].strip():
-        logging.warning(f"⚠️ Mailbox search failed or returned no results. Status: {status}, Data: {data}")
-        mail.logout()
-        return
-
-    email_ids = data[0].split()
-    logging.info(f"Found {len(email_ids)} emails matching criteria.")
-
-    existing_listings = load_existing_listings()
-    # Use link as the primary unique identifier
-    seen_links = {l.get('link') for l in existing_listings if l.get('link')}
-    logging.info(f"Loaded {len(existing_listings)} existing listings ({len(seen_links)} unique links).")
-
-    newly_added_count = 0
-    processed_emails = 0
-
-    # Process emails (consider newest first)
-    for eid in reversed(email_ids):
-        processed_emails += 1
-        logging.info(f"Processing email {processed_emails}/{len(email_ids)} (ID: {eid.decode()})...")
-        status, msg_data = mail.fetch(eid, '(RFC822)')
-
-        if status != 'OK':
-            logging.warning(f"⚠️ Failed to fetch email ID {eid.decode()}")
-            continue
-
-        # Ensure msg_data[0] is a tuple and has the email content part
-        if not isinstance(msg_data[0], tuple) or len(msg_data[0]) < 2:
-             logging.warning(f"⚠️ Unexpected data format for email ID {eid.decode()}: {msg_data[0]}")
-             continue
-
-        msg = email.message_from_bytes(msg_data[0][1], policy=policy.default)
-
-        # Extract received time robustly
-        received_time_str = msg['Date']
-        received_dt_naive = utils.parsedate_to_datetime(received_time_str)
-        if received_dt_naive:
-            # Attempt to make it timezone-aware (assuming UTC if no timezone info)
-            if received_dt_naive.tzinfo is None or received_dt_naive.tzinfo.utcoffset(received_dt_naive) is None:
-                 received_dt_aware = received_dt_naive.replace(tzinfo=timezone.utc)
-                 logging.debug(f"Assuming UTC for received time: {received_time_str}")
-            else:
-                 received_dt_aware = received_dt_naive.astimezone(timezone.utc)
-            received_time_iso = received_dt_aware.isoformat()
-        else:
-            logging.warning(f"⚠️ Could not parse date '{received_time_str}' for email ID {eid.decode()}. Skipping email.")
-            continue
-
-        # Find HTML part
-        html_body = None
-        if msg.is_multipart():
-            for part in msg.walk():
-                content_type = part.get_content_type()
-                content_disposition = str(part.get("Content-Disposition"))
-                # Check if it's HTML and not an attachment
-                if content_type == 'text/html' and 'attachment' not in content_disposition:
-                    try:
-                        # Decode payload correctly
-                        charset = part.get_content_charset() or 'utf-8' # Default to utf-8
-                        html_body = part.get_payload(decode=True).decode(charset, errors='replace')
-                        logging.debug(f"Found HTML part (charset: {charset}).")
-                        break
-                    except Exception as e:
-                        logging.warning(f"⚠️ Error decoding HTML part for email ID {eid.decode()}: {e}")
-                        html_body = None # Ensure it's reset if decoding fails
-        else:
-            # Handle non-multipart messages (less common for HTML emails)
-            if msg.get_content_type() == 'text/html':
-                 try:
-                     charset = msg.get_content_charset() or 'utf-8'
-                     html_body = msg.get_payload(decode=True).decode(charset, errors='replace')
-                     logging.debug("Found HTML in non-multipart message.")
-                 except Exception as e:
-                     logging.warning(f"⚠️ Error decoding non-multipart HTML for email ID {eid.decode()}: {e}")
+    print(f"📊 Computed scores for {len(valid_listings)} listings.")
+    return sorted(valid_listings, key=lambda x: x.get('score', 0.0), reverse=True)
 
 
-        if not html_body:
-            logging.warning(f"⚠️ No suitable HTML body found in email ID {eid.decode()}. Skipping.")
-            continue
-
-        # Parse the HTML
-        try:
-            soup = BeautifulSoup(html_body, 'html.parser')
-        except Exception as e:
-            logging.error(f"❌ BeautifulSoup failed to parse HTML for email ID {eid.decode()}: {e}")
-            continue # Skip email if BS fails
-
-        # --- Extract listings using refined parsers ---
-        potential_listings = parse_immobiliare(soup, received_time_iso) + \
-                             parse_casait(soup, received_time_iso)
-
-        logging.info(f"Extracted {len(potential_listings)} potential listings from email ID {eid.decode()}. Validating...")
-
-        # --- Validate, enrich, and add new unique listings ---
-        for potential_listing in potential_listings:
-            link = potential_listing.get('link')
-            if link and link not in seen_links:
-                validated_listing = validate_and_enrich_listing(potential_listing)
-                if validated_listing:
-                    existing_listings.append(validated_listing)
-                    seen_links.add(link) # Add link to seen set
-                    newly_added_count += 1
-                    logging.info(f"➕ Added new valid listing: {validated_listing['name']}")
-                else:
-                     # Logging handled within validate_and_enrich_listing
-                     pass
-            elif link in seen_links:
-                 logging.debug(f"Skipping duplicate listing (link already seen): {link}")
-            elif not link:
-                 logging.debug(f"Skipping potential listing with no link.")
-
-    # --- Final Processing ---
-    logging.info(f"Finished processing emails. Added {newly_added_count} new listings.")
-
-    # Compute scores for the entire updated list
-    all_listings_scored = compute_scores(existing_listings)
-
-    # Save the final list
-    save_listings(all_listings_scored)
-
-    # Logout
+def scrape_listings():
+    """Main function to connect, fetch emails, extract, validate, and save listings."""
+    mail = None # Initialize mail to None
     try:
-        mail.logout()
-        logging.info("🚪 Logged out from email account.")
+        mail = connect_mail()
+        mail.select('inbox') # Select the inbox
+
+        # Search for UNSEEN emails from specific senders
+        # Adjust senders as needed. Using OR for multiple senders.
+        search_criteria = '(UNSEEN OR FROM "noreply@notifiche.immobiliare.it" FROM "noreply_at_casa.it_4j78rss9@duck.com")'
+        # search_criteria = '(OR FROM "noreply@notifiche.immobiliare.it" FROM "noreply_at_casa.it_4j78rss9@duck.com")' # Use this to test without UNSEEN
+
+        status, data = mail.search(None, search_criteria)
+        if status != 'OK':
+            print(f"❌ Failed to search emails: {status}")
+            return
+
+        email_ids = data[0].split()
+        print(f"📥 Found {len(email_ids)} new/unseen emails to process.")
+
+        if not email_ids:
+            print("🏁 No new emails found. Exiting.")
+            return
+
+        all_listings = load_listings()
+        # Create sets for quick lookups of existing links and exact names
+        existing_links = {l['link'] for l in all_listings if l.get('link')}
+        existing_names = {l['name'] for l in all_listings if l.get('name')}
+
+        newly_added_count = 0
+
+        # Process emails from oldest unseen to newest
+        for eid in email_ids:
+            eid_str = eid.decode('utf-8') # Decode bytes to string
+            print(f"\n📧 Processing email ID: {eid_str}")
+            try:
+                # Fetch the full email content (RFC822)
+                status, msg_data = mail.fetch(eid, '(RFC822)')
+                if status != 'OK' or not msg_data or msg_data[0] is None:
+                    print(f"   ❌ Failed to fetch email ID {eid_str}: Status {status}")
+                    continue # Skip this email
+
+                msg_bytes = msg_data[0][1]
+                msg = email.message_from_bytes(msg_bytes, policy=policy.default)
+
+                # Decode header safely
+                subject = ""
+                try:
+                     subject_header = email.header.decode_header(msg['Subject'])
+                     subject = ''.join([str(s, c or 'utf-8') for s, c in subject_header])
+                except Exception as e:
+                     print(f"   ⚠️ Error decoding subject: {e}")
+                     subject = msg['Subject'] # Fallback
+
+                sender = msg.get('From', 'Unknown Sender')
+                print(f"   From: {sender} | Subject: {subject[:70]}...")
+
+                # Get received time (more reliable than 'Date' sometimes)
+                received_time_str = None
+                try:
+                    date_tuple = email.utils.parsedate_tz(msg['Date'])
+                    if date_tuple:
+                        local_dt = datetime.fromtimestamp(email.utils.mktime_tz(date_tuple))
+                        received_time_str = local_dt.astimezone(timezone.utc).isoformat()
+                    else: # Fallback if Date header is weird
+                        received_time_str = datetime.now(timezone.utc).isoformat()
+                        print("   ⚠️ Could not parse 'Date' header, using current time.")
+                except Exception as e:
+                    received_time_str = datetime.now(timezone.utc).isoformat()
+                    print(f"   ⚠️ Error parsing date '{msg['Date']}', using current time: {e}")
+
+
+                # Extract HTML body
+                body = ""
+                if msg.is_multipart():
+                    for part in msg.walk():
+                        content_type = part.get_content_type()
+                        content_disposition = str(part.get('Content-Disposition'))
+                        if content_type == 'text/html' and 'attachment' not in content_disposition:
+                            try:
+                                body_bytes = part.get_payload(decode=True)
+                                # Detect charset or default to utf-8
+                                charset = part.get_content_charset() or 'utf-8'
+                                body = body_bytes.decode(charset, errors='replace')
+                                break # Found the main HTML part
+                            except Exception as e:
+                                print(f"   ⚠️ Error decoding HTML part: {e}")
+                                body = "" # Reset body on error
+                else:
+                    # Not multipart, try to get content directly
+                     content_type = msg.get_content_type()
+                     if content_type == 'text/html':
+                        try:
+                            body_bytes = msg.get_payload(decode=True)
+                            charset = msg.get_content_charset() or 'utf-8'
+                            body = body_bytes.decode(charset, errors='replace')
+                        except Exception as e:
+                             print(f"   ⚠️ Error decoding non-multipart HTML: {e}")
+                             body = ""
+
+
+                if not body:
+                    print("   ⚠️ No HTML body found in email.")
+                    # Mark as seen even if no body, to avoid reprocessing
+                    mail.store(eid, '+FLAGS', '\\Seen')
+                    print(f"   ✅ Marked email {eid_str} as Seen (no HTML body).")
+                    continue # Skip to next email
+
+                # Extract potential listings from this email's body
+                extracted_listings = extract_listings_from_email(body, received_time_str)
+
+                processed_in_email = 0
+                duplicates_in_email = 0
+                invalid_in_email = 0
+                added_from_email = 0
+
+                for listing in extracted_listings:
+                    processed_in_email += 1
+                    # --- Duplicate Checks ---
+                    # 1. Check link (most reliable)
+                    if listing['link'] in existing_links:
+                        # print(f"    🔗 Duplicate (Link): {listing['link']}")
+                        duplicates_in_email +=1
+                        continue
+
+                    # 2. Check exact name (quick check)
+                    if listing['name'] in existing_names:
+                        # print(f"    📛 Duplicate (Exact Name): {listing['name'][:50]}...")
+                        duplicates_in_email +=1
+                        continue
+
+                    # --- Validation ---
+                    is_valid, reason = validate_listing(listing)
+                    if not is_valid:
+                         # print(f"    🚫 Invalid ({reason}): {listing['name'][:50]}...")
+                         invalid_in_email += 1
+                         continue
+
+                    # --- Similarity Check (more expensive, do last) ---
+                    is_similar = False
+                    for existing_listing in all_listings:
+                        # Only compare if the existing one is also valid (or skip check if needed)
+                        # And avoid comparing to itself if name happens to be identical
+                        if listing['name'] != existing_listing['name'] and \
+                           are_names_similar(listing['name'], existing_listing['name']):
+                            # print(f"    👯 Duplicate (Similar Name): {listing['name'][:50]}... vs {existing_listing['name'][:50]}...")
+                            is_similar = True
+                            break # Found a similar one, no need to check further
+
+                    if is_similar:
+                        duplicates_in_email +=1
+                        continue
+
+                    # --- Add New Listing ---
+                    print(f"    ✨ Adding NEW listing: {listing['name'][:60]}... ({listing.get('square_meters')}sqm, €{listing.get('price')})")
+                    all_listings.append(listing)
+                    existing_links.add(listing['link']) # Update sets immediately
+                    existing_names.add(listing['name'])
+                    newly_added_count += 1
+                    added_from_email += 1
+
+                print(f"   📊 Email Stats: Processed={processed_in_email}, Added={added_from_email}, Duplicates={duplicates_in_email}, Invalid={invalid_in_email}")
+
+                # Mark the email as Seen *after* processing successfully
+                status, _ = mail.store(eid, '+FLAGS', '\\Seen')
+                if status == 'OK':
+                     print(f"   ✅ Marked email {eid_str} as Seen.")
+                else:
+                     print(f"   ⚠️ Failed to mark email {eid_str} as Seen.")
+
+            except Exception as e:
+                print(f"   ❌❌❌ An unexpected error occurred processing email ID {eid_str}: {e}")
+                # Optional: Decide whether to mark as seen even on error
+                # mail.store(eid, '+FLAGS', '\\Seen')
+
+        # --- Post-Processing ---
+        if newly_added_count > 0:
+            print(f"\n📈 Added {newly_added_count} new listings. Recomputing scores...")
+            # Recompute scores for the entire updated list
+            scored_listings = compute_score(all_listings)
+            save_listings(scored_listings)
+        else:
+            print("\n🏁 No new valid listings were added.")
+            # Optionally save even if no new listings, e.g., if scores changed due to aging
+            # save_listings(all_listings)
+
+        print(f"✅ Done. Total listings in file: {len(all_listings)}")
+
+    except imaplib.IMAP4.error as e:
+        print(f"❌ IMAP Error during processing: {e}")
     except Exception as e:
-        logging.warning(f"⚠️ Error during email logout: {e}")
+        print(f"❌ An unexpected error occurred: {e}")
+    finally:
+        # Ensure logout happens
+        if mail:
+            try:
+                mail.logout()
+                print("🚪 Logged out from email.")
+            except Exception as e:
+                print(f"⚠️ Error during logout: {e}")
 
 
 if __name__ == '__main__':
-    logging.info("🚀 Starting email scraping process...")
-    try:
-        scrape_emails()
-    except Exception as e:
-        logging.critical(f"💥 Unhandled exception in main process: {e}", exc_info=True) # Log traceback
-    logging.info("🏁 Scraping process finished.")
+    scrape_listings()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
