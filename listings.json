@@ -1,1 +1,342 @@
-[]
+[
+  {
+    "name": "Appartamento in vendita in Viale del Piave 93,",
+    "link": "https://www.casa.it/immobili/51423043/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 81,
+    "price": 145000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:06.623240+00:00",
+    "received_time": "2025-05-01T10:47:02+00:00",
+    "score": 0.9763648716070613
+  },
+  {
+    "name": "Appartamento in vendita in Quartiere Giacomo Perlasca 5,",
+    "link": "https://www.casa.it/immobili/51313973/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 90,
+    "price": 153000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:12.084684+00:00",
+    "received_time": "2025-04-28T10:58:15+00:00",
+    "score": 0.9498756036596101
+  },
+  {
+    "name": "Appartamento in vendita in Via Alessandro Lamarmora 294,",
+    "link": "https://www.casa.it/immobili/51291593/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 95,
+    "price": 168000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:12.084422+00:00",
+    "received_time": "2025-04-28T10:58:15+00:00",
+    "score": 0.9319319914045527
+  },
+  {
+    "name": "Appartamento in vendita in Via Monte Ortigara,",
+    "link": "https://www.casa.it/immobili/51414567/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 75,
+    "price": 145000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:08.332523+00:00",
+    "received_time": "2025-04-30T10:51:17+00:00",
+    "score": 0.9221054949640655
+  },
+  {
+    "name": "Appartamento in vendita in Via San Rocchino,",
+    "link": "https://www.casa.it/immobili/51428462/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 75,
+    "price": 152000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:06.623029+00:00",
+    "received_time": "2025-05-01T10:47:02+00:00",
+    "score": 0.9143307537976497
+  },
+  {
+    "name": "Appartamento in vendita in Via Berardo Maggi 61,",
+    "link": "https://www.casa.it/immobili/51255273/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 90,
+    "price": 165000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:12.830641+00:00",
+    "received_time": "2025-04-27T10:58:09+00:00",
+    "score": 0.8981557742004915
+  },
+  {
+    "name": "Appartamento in vendita",
+    "link": "https://www.casa.it/immobili/51235089/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 60,
+    "price": 107000.0,
+    "location": "vendita",
+    "extracted_time": "2025-05-01T14:14:13.915820+00:00",
+    "received_time": "2025-04-26T10:10:49+00:00",
+    "score": 0.8939661548598802
+  },
+  {
+    "name": "Appartamento in vendita in Via Galileo Galilei,",
+    "link": "https://www.casa.it/immobili/51420779/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 85,
+    "price": 175000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:07.980262+00:00",
+    "received_time": "2025-04-30T10:51:16+00:00",
+    "score": 0.8891951464759511
+  },
+  {
+    "name": "Appartamento in vendita in Via Berardo Maggi,",
+    "link": "https://www.casa.it/immobili/51220680/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 95,
+    "price": 200000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:08.332437+00:00",
+    "received_time": "2025-04-30T10:51:17+00:00",
+    "score": 0.87701641801546
+  },
+  {
+    "name": "Appartamento in vendita in Via Gerolamo Savoldo 3,",
+    "link": "https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 86,
+    "price": 169000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:16.030432+00:00",
+    "received_time": "2025-04-24T11:10:47+00:00",
+    "score": 0.8134874122621634
+  },
+  {
+    "name": "Appartamento in vendita in Via Arrigo Boito,",
+    "link": "https://www.casa.it/immobili/51210568/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 95,
+    "price": 169000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:22.635160+00:00",
+    "received_time": "2025-04-21T10:34:10+00:00",
+    "score": 0.8116298842707159
+  },
+  {
+    "name": "Appartamento in vendita in Via Toscana,",
+    "link": "https://www.casa.it/immobili/51298295/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 65,
+    "price": 150000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:12.084511+00:00",
+    "received_time": "2025-04-28T10:58:15+00:00",
+    "score": 0.7905065977729773
+  },
+  {
+    "name": "﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/15CivMbbdixAVNQNQKjSUA~~/AAAHahA~/2waUjI5hhFqT2d6t8T7g_uh3eQl6NpIL8e603LqajprO7n3WO8SIOFC3m2tBUJ0rHqPf2Y-a7pTYT4b_RlgiAYJRsSTe4O7gmHSjMYwgUGY8-NSSUGTak_WkTYkpzHSh1UzDifS-FK77KMGeGb7Rm9EgFSZdMO7U9xjbc9gbINqrs86TtbHqfL3Shm7MICzE7zZ5M4r0IBJZbYyU9amsyoYSz9w6zHI3yXTEM0whrY2vS33FGtIzFClmrUa4ToT1PZilTaPtjeei3FvP1jprng~~",
+    "square_meters": 92,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:26.016451+00:00",
+    "received_time": "2025-04-17T10:28:05+00:00",
+    "score": 0.7008338077644339
+  },
+  {
+    "name": "Appartamento in vendita in Via Aleardo Aleardi 1,",
+    "link": "https://www.casa.it/immobili/51411984/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 81,
+    "price": 225000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:07.979911+00:00",
+    "received_time": "2025-04-30T10:51:16+00:00",
+    "score": 0.7006473857264808
+  },
+  {
+    "name": "﻿Bilocale via Sostegno, Brescia Due, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/O8Wx8Bcj6e_vsAGjJyhKrQ~~/AAAHahA~/8o3I4aamOuRweHlO2v4a8WxWB378lddcSnOG-EazrGGPnIZ9SBxFK4LeyCe0Fsc7svMTibt-sumSRmcD6lrkUKpQxW3gtyXmq1QUF-vCezz5BjzM5-nt7Po0oq2DgWpXwkr5O3JsNrdK7NL7bHF_rUOWY3ksIiM8v8o6AdAivxEA9efTrws1BTvkLTJ_dCSDq-6KRnUIvXfywJw6mZEmnsuoNmFGPJq0ggq_0Zf4ukvhD-uyucrsQLtRifklWcA--X138ynxzLoIGdSUQwLhIw~~",
+    "square_meters": 65,
+    "price": 125000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:27.599866+00:00",
+    "received_time": "2025-04-16T16:46:59+00:00",
+    "score": 0.6944103753214754
+  },
+  {
+    "name": "﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/I8SkdtIfoqHASks9ls8MEw~~/AAAHahA~/ZJwEsC2MaeoSzG5fuxV3huxANIqwg2E8xc7qmWP4C1UUlpxEp8hcCAh-U5-1Bj1FkgiPnlxeT7cqRL_OxPTWL_qsLev4SnCMyVDDGmuqMJxb5pPtSS1JByXvDd8QlOphu-7A1oejUDD6Awng2uvaWihABT1sK0OgHuS3_zn1WSp8DEWKWlbyyY8at8uDjQJVrhmi_0LU3WNRmpyJyQf3tiDqLQMigHmCEQ1cjQbIWCfkmLvXM8Uvt6DzrKoAhFQV6FSN0kX0u8wz6pr3-mcalg~~",
+    "square_meters": 89,
+    "price": 179000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:24.064329+00:00",
+    "received_time": "2025-04-17T14:50:48+00:00",
+    "score": 0.6866904803697063
+  },
+  {
+    "name": "Appartamento in vendita in Corso Giacomo Matteotti 12,",
+    "link": "https://www.casa.it/immobili/51417337/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 74,
+    "price": 210000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:07.979742+00:00",
+    "received_time": "2025-04-30T10:51:16+00:00",
+    "score": 0.684896467138073
+  },
+  {
+    "name": "Appartamento in vendita in Via Nicolò Tommaseo 8,",
+    "link": "https://www.casa.it/immobili/51200728/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 61,
+    "price": 180000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:06.306108+00:00",
+    "received_time": "2025-05-01T10:47:02+00:00",
+    "score": 0.671969045571797
+  },
+  {
+    "name": "Appartamento in vendita in Lamarmora,",
+    "link": "https://www.casa.it/immobili/51351891/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 100,
+    "price": 290000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:07.979436+00:00",
+    "received_time": "2025-04-30T10:51:16+00:00",
+    "score": 0.6685942663990709
+  },
+  {
+    "name": "﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/NuRfYVivIWSTMVvjZrGzoQ~~/AAAHahA~/j6TZ9xfkdgCV4BnC_E1aZmsA8NsiJLtgEGMOXtutQPZTH-DrYjyWUaOhEpMAHub8eu07w_y5P67HWUUQOdDAsxurHeTZD0fAS5uG57UCHq-Mi_egUW2smedDA_WXuvo2HxGD-Ka99qKImJQpzHW3TwEaOprU3sYd7GOvLLyRsVzw7Ibf5vduhQhz1ND50gl4GZEM25UdndEG3n3HRNlamBjuN6QThP9buZfw96WKHNrt2bvfVWddU1RHUrETzdMNx7_GQC3U_MgnKMBkRiB_8w~~",
+    "square_meters": 70,
+    "price": 120000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:31.741853+00:00",
+    "received_time": "2025-04-09T14:27:11+00:00",
+    "score": 0.6302787613185672
+  },
+  {
+    "name": "Appartamento in vendita in Via San Faustino,",
+    "link": "https://www.casa.it/immobili/51211353/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 90,
+    "price": 236000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:21.342848+00:00",
+    "received_time": "2025-04-22T10:07:58+00:00",
+    "score": 0.6069255376730276
+  },
+  {
+    "name": "﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/spXzps7uae9hwp8F6LgSlA~~/AAAHahA~/qYKD-Rz6RgplPKjYHszfIUyWZwFVzFoQ90BJ9d3QGFKx-pw3lhU3sxSzrmex4wXUWNAy_x1u19UF5A0HuoTJJIoMwQQywbdXvAidg0wzmXOIOCUUwLdZOBqy-s-MXeMFYUA1Z1UrMkvv6BvX_S_kPOM1al8I6atUo3GlesrSy63zBkKfFu-YQKdmAlEA5pmMPDhfTda392XQ8yzfvRiVT09B3Pa6Ss5TJlG4Q_6Z_NPYihloVfiU7wKKUN0UmkBNRMFhtiVd4tGoMFrZwIokKQ~~",
+    "square_meters": 60,
+    "price": 159000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:20.039742+00:00",
+    "received_time": "2025-04-22T15:38:54+00:00",
+    "score": 0.6034905098564111
+  },
+  {
+    "name": "Appartamento in vendita in Via Moretto,",
+    "link": "https://www.casa.it/immobili/50161992/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 100,
+    "price": 289000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:21.670472+00:00",
+    "received_time": "2025-04-22T10:07:58+00:00",
+    "score": 0.5367000671466111
+  },
+  {
+    "name": "Appartamento in vendita in Contrada del Carmine,",
+    "link": "https://www.casa.it/immobili/51362498/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 66,
+    "price": 189000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:22.308512+00:00",
+    "received_time": "2025-04-21T10:34:09+00:00",
+    "score": 0.5271669702307975
+  },
+  {
+    "name": "Appartamento in vendita in Via Cremona 48",
+    "link": "https://www.casa.it/immobili/50562173/",
+    "square_meters": 105,
+    "price": 298000.0,
+    "location": "Via Cremona 48",
+    "extracted_time": "2025-05-01T14:14:23.189063+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.5185155542219282
+  },
+  {
+    "name": "Appartamento in vendita in veneto",
+    "link": "https://www.casa.it/immobili/48561413/",
+    "square_meters": 90,
+    "price": 259000.0,
+    "location": "veneto",
+    "extracted_time": "2025-05-01T14:14:23.188894+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.5081086972974445
+  },
+  {
+    "name": "Appartamento in vendita in Viale Venezia 41,",
+    "link": "https://www.casa.it/immobili/51193051/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 85,
+    "price": 295000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:10.414072+00:00",
+    "received_time": "2025-04-29T11:28:43+00:00",
+    "score": 0.502639938930415
+  },
+  {
+    "name": "Appartamento in vendita in Via Sostegno 6,",
+    "link": "https://www.casa.it/immobili/51380746/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 95,
+    "price": 295000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:19.284649+00:00",
+    "received_time": "2025-04-23T10:19:51+00:00",
+    "score": 0.49713656902061903
+  },
+  {
+    "name": "Appartamento in vendita in Corso Goffredo Mameli",
+    "link": "https://www.casa.it/immobili/51136927/",
+    "square_meters": 90,
+    "price": 269000.0,
+    "location": "Corso Goffredo Mameli",
+    "extracted_time": "2025-05-01T14:14:23.188804+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.47896949790889
+  },
+  {
+    "name": "﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/IneCESqW-VcJ_XYzHVFcWg~~/AAAHahA~/flMtRwa2-22V8FYjWBrsPE3lMyU76eFTillpViDMpf8v9JQmLz_qQh1N1AdyTmDStI_v3EeEEDsTyQaWT8LXTD2UR8Byyo5bbqXoAUhBvB3Fp5hamgzfTZywPLXuNlieS0MgwfYTQjbqqLaNeqBtc74Bhs3nqhFR2pI0IrYYbgqwynrHHLs7QhkhjMzpB3zjVIk0mwEHJlungxXAZXOy4jAtoUIEf7-RIUVI_GRfRzxiLlvyT62pjcTD--zqFUJ5CwQRFjxUOP2BW9c9XBt0gw~~",
+    "square_meters": 67,
+    "price": 189000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:25.352062+00:00",
+    "received_time": "2025-04-17T11:06:10+00:00",
+    "score": 0.4717418200053975
+  },
+  {
+    "name": "Appartamento in vendita in Via Marsala 38",
+    "link": "https://www.casa.it/immobili/50902893/",
+    "square_meters": 68,
+    "price": 235000.0,
+    "location": "Via Marsala 38",
+    "extracted_time": "2025-05-01T14:14:22.958703+00:00",
+    "received_time": "2025-04-20T13:46:30+00:00",
+    "score": 0.35733479944791474
+  },
+  {
+    "name": "Appartamento in vendita in Via Vittorio Emanuele II,",
+    "link": "https://www.casa.it/immobili/51217516/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 61,
+    "price": 220000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:21.343024+00:00",
+    "received_time": "2025-04-22T10:07:58+00:00",
+    "score": 0.34878089259802997
+  },
+  {
+    "name": "Appartamento in vendita in Via Vittorio Emanuele II",
+    "link": "https://www.casa.it/immobili/51217516/",
+    "square_meters": 61,
+    "price": 220000.0,
+    "location": "Via Vittorio Emanuele II",
+    "extracted_time": "2025-05-01T14:14:23.189226+00:00",
+    "received_time": "2025-04-20T12:34:40+00:00",
+    "score": 0.3169842108161222
+  },
+  {
+    "name": "﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/l7VFG1Hr0d_26MMerm8Jpg~~/AAAHahA~/LRfSURe-XW0NOoBJSMqNSW09HZik3co6SYe6ksP3COg0r2rj9Udsd5AZ4DONFzPY8n_Ks4apuiZbdnEh3Wf0Y_ZW1TAkYVbNxOm9OWVRzvIjsI8XSpLkNHvdtkvKZGWXW_JNlfk1T1451QOKgg5fDEBwI4EeiDrI9K6yHqSK04ooHQVlm8o2ygPWo2KJZez7jWIP1t67rEu5t02H4PicXi6oNJLvV2_XQ9fANS7ZrcDGSrade9ktjLp9Wm-SIcKtWdd_xd6plb3rGI7L_eB_0Q~~",
+    "square_meters": 64,
+    "price": 178000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-05-01T14:14:41.374161+00:00",
+    "received_time": "2025-04-01T14:26:08+00:00",
+    "score": 0.21643916595012896
+  }
+]
