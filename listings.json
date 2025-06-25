@@ -7,7 +7,7 @@
     "location": "",
     "extracted_time": "2025-06-20T11:13:51.374733+00:00",
     "received_time": "2025-06-20T10:35:48+00:00",
-    "score": 0.959599714132189
+    "score": 0.9552785291472932
   },
   {
     "name": "Appartamento in vendita in Via Giosuè Carducci 20,",
@@ -17,7 +17,7 @@
     "location": "",
     "extracted_time": "2025-06-24T17:16:07.311738+00:00",
     "received_time": "2025-06-24T16:22:15+00:00",
-    "score": 0.9572118702553485
+    "score": 0.9526611716881656
   },
   {
     "name": "﻿Trilocale via Pastrengo 11, Via Veneto - Borgo Trento, Brescia﻿",
@@ -27,7 +27,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-19T16:19:30.660427+00:00",
     "received_time": "2025-06-19T16:18:01+00:00",
-    "score": 0.9373989143914112
+    "score": 0.9331189900711254
   },
   {
     "name": "Appartamento in vendita in Via Domenico Ghidoni,",
@@ -37,7 +37,7 @@
     "location": "",
     "extracted_time": "2025-06-17T11:14:04.431689+00:00",
     "received_time": "2025-06-17T10:33:36+00:00",
-    "score": 0.9360842720075477
+    "score": 0.931925538791742
   },
   {
     "name": "﻿Trilocale via Cesare Lombroso, Crocifissa di Rosa, Brescia﻿",
@@ -47,7 +47,17 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-18T09:17:58.322294+00:00",
     "received_time": "2025-06-18T08:59:04+00:00",
-    "score": 0.9335042736311345
+    "score": 0.9292949704647824
+  },
+  {
+    "name": "﻿Bilocale via Alessandro Manzoni, Porta Milano, Brescia﻿",
+    "link": "https://clicks.immobiliare.it/f/a/C8dKxHRFoQFRLxctrqceog~~/AAAHahA~/nuYipkfoexmuJuNOD8sRXP9hzjP9oBXnSI2iY1j8ljlqf9d-i6d3GS_sTxRVv9sYPQMNtAxwYDvpVW7a2KQL6Is8PbX5hrdeJ3lkmMDw4fdyFpzvzGpTYT0cK-CCbkHzDmjQ0V3e_SXOW2XxnXZKHC5WLYH1jq3p2KhtZf_04mJ0c9-JNreapacMYG8AbvihzqlPwi2l-tOvF1db5933xYsrqOMtCCK2ZFNLoBhWgDw6Ulzw_1zh4FXUPcO4LPot08ujGXWIrVa-FDeBLugAfQ~~",
+    "square_meters": 64,
+    "price": 169000.0,
+    "location": "Brescia﻿",
+    "extracted_time": "2025-06-25T11:14:28.225256+00:00",
+    "received_time": "2025-06-25T10:54:20+00:00",
+    "score": 0.9091183574879227
   },
   {
     "name": "Appartamento in vendita in Via Corfù 59,",
@@ -57,7 +67,7 @@
     "location": "",
     "extracted_time": "2025-06-07T11:12:01.769858+00:00",
     "received_time": "2025-06-07T10:50:40+00:00",
-    "score": 0.8927063338296628
+    "score": 0.8890881894261997
   },
   {
     "name": "Appartamento in vendita in Via Benedetto Marcello,",
@@ -67,7 +77,7 @@
     "location": "",
     "extracted_time": "2025-06-12T11:13:52.890446+00:00",
     "received_time": "2025-06-12T10:46:10+00:00",
-    "score": 0.8918252992210427
+    "score": 0.8879367088168187
   },
   {
     "name": "Appartamento in vendita in Via Raffaele da Brescia 2,",
@@ -77,7 +87,7 @@
     "location": "",
     "extracted_time": "2025-06-18T11:14:09.539912+00:00",
     "received_time": "2025-06-18T10:42:28+00:00",
-    "score": 0.8886041470724173
+    "score": 0.88439095757204
   },
   {
     "name": "﻿Bilocale via Corfu' 59, Brescia Due, Brescia﻿",
@@ -87,7 +97,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-06T16:20:25.829790+00:00",
     "received_time": "2025-06-06T15:23:42+00:00",
-    "score": 0.8878871890685228
+    "score": 0.8843129056153789
   },
   {
     "name": "Appartamento in vendita in Quartiere I Maggio,",
@@ -97,7 +107,7 @@
     "location": "",
     "extracted_time": "2025-06-12T11:13:53.952040+00:00",
     "received_time": "2025-06-12T10:34:35+00:00",
-    "score": 0.8866244852324432
+    "score": 0.8827363301928465
   },
   {
     "name": "Appartamento in vendita in Via Rocca D'Anfo,",
@@ -107,7 +117,7 @@
     "location": "",
     "extracted_time": "2025-06-13T17:13:41.562844+00:00",
     "received_time": "2025-06-13T16:42:45+00:00",
-    "score": 0.8815311645868871
+    "score": 0.8775750488157624
   },
   {
     "name": "﻿Bilocale via Rocca D'anfo, Via Veneto - Borgo Trento, Brescia﻿",
@@ -117,7 +127,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-13T14:15:35.912339+00:00",
     "received_time": "2025-06-13T13:43:59+00:00",
-    "score": 0.8807929237529875
+    "score": 0.8768435270048729
   },
   {
     "name": "Appartamento in vendita in Via Pastrengo,",
@@ -127,7 +137,7 @@
     "location": "",
     "extracted_time": "2025-06-12T11:13:53.952219+00:00",
     "received_time": "2025-06-12T10:34:35+00:00",
-    "score": 0.875335392936486
+    "score": 0.8714472378968892
   },
   {
     "name": "Appartamento in vendita in Via Gezio Calini 14,",
@@ -137,7 +147,7 @@
     "location": "",
     "extracted_time": "2025-06-17T11:14:04.431417+00:00",
     "received_time": "2025-06-17T10:33:36+00:00",
-    "score": 0.8656828255572836
+    "score": 0.861524092341478
   },
   {
     "name": "Appartamento in vendita in Via Giovanni Lipella 6,",
@@ -147,7 +157,7 @@
     "location": "",
     "extracted_time": "2025-06-09T11:14:10.988543+00:00",
     "received_time": "2025-06-09T10:37:54+00:00",
-    "score": 0.8589216214724223
+    "score": 0.855195710855597
   },
   {
     "name": "﻿Trilocale via Giovanni Lipella 6, Crocifissa di Rosa, Brescia﻿",
@@ -157,7 +167,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-09T10:17:58.946833+00:00",
     "received_time": "2025-06-09T09:37:11+00:00",
-    "score": 0.8586708838854471
+    "score": 0.8549472553309774
   },
   {
     "name": "Appartamento in vendita in Via Baldassare Zamboni,",
@@ -167,7 +177,7 @@
     "location": "",
     "extracted_time": "2025-05-30T21:13:59.817549+00:00",
     "received_time": "2025-05-30T20:29:07+00:00",
-    "score": 0.8523526591467874
+    "score": 0.8491457576645427
   },
   {
     "name": "Appartamento in vendita in Via Zabella 30,",
@@ -177,7 +187,7 @@
     "location": "",
     "extracted_time": "2025-06-11T12:33:11.142643+00:00",
     "received_time": "2025-06-11T10:43:57+00:00",
-    "score": 0.8456118238571654
+    "score": 0.8417774397943674
   },
   {
     "name": "Appartamento in vendita in Via Tosio 15,",
@@ -187,7 +197,7 @@
     "location": "",
     "extracted_time": "2025-06-20T11:13:51.375173+00:00",
     "received_time": "2025-06-20T10:35:48+00:00",
-    "score": 0.8438110476188847
+    "score": 0.8394898626339888
   },
   {
     "name": "Appartamento in vendita in Corso Giacomo Matteotti,",
@@ -197,7 +207,7 @@
     "location": "",
     "extracted_time": "2025-06-03T21:13:43.055091+00:00",
     "received_time": "2025-06-03T20:37:14+00:00",
-    "score": 0.836317795100121
+    "score": 0.8328940964412489
   },
   {
     "name": "﻿Trilocale corso Giacomo Matteotti, Loggia - Garibaldi, Brescia﻿",
@@ -207,7 +217,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-03T18:22:42.067642+00:00",
     "received_time": "2025-06-03T17:33:49+00:00",
-    "score": 0.8355603514699639
+    "score": 0.8321435466063767
   },
   {
     "name": "Appartamento in vendita in Corsetto Sant'Agata 22,",
@@ -217,7 +227,7 @@
     "location": "",
     "extracted_time": "2025-06-14T13:23:49.350952+00:00",
     "received_time": "2025-06-14T13:15:28+00:00",
-    "score": 0.833481736139117
+    "score": 0.8294792881752926
   },
   {
     "name": "Appartamento in vendita in Via Creta,",
@@ -227,7 +237,7 @@
     "location": "",
     "extracted_time": "2025-06-09T11:14:10.564683+00:00",
     "received_time": "2025-06-09T10:37:54+00:00",
-    "score": 0.8320831888368883
+    "score": 0.828357278220063
   },
   {
     "name": "Appartamento in vendita in Vicolo Dell Anguilla,",
@@ -237,7 +247,7 @@
     "location": "",
     "extracted_time": "2025-06-12T11:13:53.951951+00:00",
     "received_time": "2025-06-12T10:34:35+00:00",
-    "score": 0.8317935673580471
+    "score": 0.8279054123184504
   },
   {
     "name": "Appartamento in vendita in Via Carlo Cocchetti,",
@@ -247,7 +257,7 @@
     "location": "",
     "extracted_time": "2025-06-03T18:22:41.563485+00:00",
     "received_time": "2025-06-03T18:09:33+00:00",
-    "score": 0.8272538107638785
+    "score": 0.823835662847398
   },
   {
     "name": "Appartamento in vendita in Viale Duca degli Abruzzi 2,",
@@ -257,7 +267,7 @@
     "location": "",
     "extracted_time": "2025-06-03T11:14:15.482371+00:00",
     "received_time": "2025-06-03T10:45:04+00:00",
-    "score": 0.821944338982756
+    "score": 0.8185428971659079
   },
   {
     "name": "Appartamento in vendita in Via Trieste 1,",
@@ -267,7 +277,7 @@
     "location": "",
     "extracted_time": "2025-06-23T19:12:48.770996+00:00",
     "received_time": "2025-06-23T18:32:16+00:00",
-    "score": 0.8218006746011495
+    "score": 0.8172992123279785
   },
   {
     "name": "Appartamento in vendita in Corsetto Sant'Agata,",
@@ -277,7 +287,7 @@
     "location": "",
     "extracted_time": "2025-06-05T11:14:03.317571+00:00",
     "received_time": "2025-06-05T10:47:45+00:00",
-    "score": 0.8189651954938724
+    "score": 0.8154554067686841
   },
   {
     "name": "Appartamento in vendita in Via Rose,",
@@ -287,7 +297,7 @@
     "location": "",
     "extracted_time": "2025-05-29T11:13:30.904734+00:00",
     "received_time": "2025-05-29T10:37:42+00:00",
-    "score": 0.8160516826759177
+    "score": 0.8129211328736644
   },
   {
     "name": "﻿Bilocale via Cefalonia, Brescia Due, Brescia﻿",
@@ -297,7 +307,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-26T10:20:17.080357+00:00",
     "received_time": "2025-05-26T10:18:54+00:00",
-    "score": 0.8131635506718025
+    "score": 0.810196076556868
   },
   {
     "name": "Appartamento in vendita in Viale del Piave,",
@@ -307,7 +317,7 @@
     "location": "",
     "extracted_time": "2025-05-31T11:11:45.643829+00:00",
     "received_time": "2025-05-31T10:45:50+00:00",
-    "score": 0.8054343317275552
+    "score": 0.8021952301763389
   },
   {
     "name": "Appartamento in vendita in Via Cesare Arici 12,",
@@ -317,7 +327,7 @@
     "location": "",
     "extracted_time": "2025-05-23T14:15:00.459245+00:00",
     "received_time": "2025-05-23T14:13:08+00:00",
-    "score": 0.8027320551805224
+    "score": 0.7999181463848906
   },
   {
     "name": "Appartamento in vendita in Via Alessandro Lamarmora 312,",
@@ -327,7 +337,7 @@
     "location": "",
     "extracted_time": "2025-05-28T18:20:34.285287+00:00",
     "received_time": "2025-05-28T17:48:08+00:00",
-    "score": 0.7994421393517745
+    "score": 0.796349534552301
   },
   {
     "name": "Appartamento in vendita in Via Ugo da Como,",
@@ -337,7 +347,7 @@
     "location": "",
     "extracted_time": "2025-05-30T12:31:29.670822+00:00",
     "received_time": "2025-05-30T11:27:41+00:00",
-    "score": 0.7981843707094973
+    "score": 0.7949978192348515
   },
   {
     "name": "Appartamento in vendita in Via Armando Diaz 18,",
@@ -347,7 +357,7 @@
     "location": "",
     "extracted_time": "2025-06-21T11:13:42.988263+00:00",
     "received_time": "2025-06-21T10:20:16+00:00",
-    "score": 0.7973258995978056
+    "score": 0.792951175412963
   },
   {
     "name": "Appartamento in vendita in Via Mangano,",
@@ -357,7 +367,7 @@
     "location": "",
     "extracted_time": "2025-06-10T11:13:50.321845+00:00",
     "received_time": "2025-06-10T10:45:14+00:00",
-    "score": 0.789750966462109
+    "score": 0.785970657191713
   },
   {
     "name": "Appartamento in vendita in Via G. Camozzi 18,",
@@ -367,7 +377,7 @@
     "location": "",
     "extracted_time": "2025-05-21T11:13:21.757340+00:00",
     "received_time": "2025-05-21T11:09:23+00:00",
-    "score": 0.785939103477506
+    "score": 0.7832403470597257
   },
   {
     "name": "﻿Bilocale Contrada del Mangano 2, Loggia - Garibaldi, Brescia﻿",
@@ -377,7 +387,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-06-09T16:20:06.333100+00:00",
     "received_time": "2025-06-09T15:52:30+00:00",
-    "score": 0.7850731928246713
+    "score": 0.7813354578298543
   },
   {
     "name": "﻿Bilocale buono stato, terzo piano, Via Veneto - Borgo Trento, Brescia﻿",
@@ -387,7 +397,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-27T17:13:51.099359+00:00",
     "received_time": "2025-05-27T16:37:21+00:00",
-    "score": 0.7804154339452674
+    "score": 0.7773796125952436
   },
   {
     "name": "Appartamento in vendita in Via Cesare Lombroso,",
@@ -397,7 +407,7 @@
     "location": "",
     "extracted_time": "2025-05-28T18:20:34.817832+00:00",
     "received_time": "2025-05-28T17:46:47+00:00",
-    "score": 0.7732296242434762
+    "score": 0.7701370701843405
   },
   {
     "name": "﻿Trilocale via Gabriele Camozzi 18, Porta Milano, Brescia﻿",
@@ -407,7 +417,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-20T15:17:25.650062+00:00",
     "received_time": "2025-05-20T15:11:14+00:00",
-    "score": 0.7722495220595813
+    "score": 0.7695957986312822
   },
   {
     "name": "Appartamento in vendita in Via Flero 28,",
@@ -417,7 +427,7 @@
     "location": "",
     "extracted_time": "2025-05-22T21:14:37.756268+00:00",
     "received_time": "2025-05-22T20:51:50+00:00",
-    "score": 0.764594529523758
+    "score": 0.7618197584420573
   },
   {
     "name": "Appartamento in vendita in Contrada delle Cossere,",
@@ -427,7 +437,7 @@
     "location": "",
     "extracted_time": "2025-06-18T13:30:37.732468+00:00",
     "received_time": "2025-06-18T12:57:37+00:00",
-    "score": 0.7614965290822701
+    "score": 0.757278259910292
   },
   {
     "name": "Appartamento in vendita in Via Cremona,",
@@ -437,7 +447,7 @@
     "location": "",
     "extracted_time": "2025-05-15T12:31:51.724759+00:00",
     "received_time": "2025-05-15T11:13:56+00:00",
-    "score": 0.7584444106186887
+    "score": 0.7560702213494417
   },
   {
     "name": "Appartamento in vendita in Via Salvo D'Acquisto,",
@@ -447,17 +457,7 @@
     "location": "",
     "extracted_time": "2025-05-30T20:17:06.954380+00:00",
     "received_time": "2025-05-30T20:14:22+00:00",
-    "score": 0.7535263149523664
-  },
-  {
-    "name": "Appartamento in vendita in Via dei Musei 17,",
-    "link": "https://www.casa.it/immobili/51736053/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 80,
-    "price": 280000.0,
-    "location": "",
-    "extracted_time": "2025-06-12T11:13:54.677214+00:00",
-    "received_time": "2025-06-12T10:34:35+00:00",
-    "score": 0.7532911518991099
+    "score": 0.7503199678552945
   },
   {
     "name": "Appartamento in vendita in Via Luigi Apollonio 22,",
@@ -467,7 +467,17 @@
     "location": "",
     "extracted_time": "2025-06-10T20:17:57.473795+00:00",
     "received_time": "2025-06-10T19:20:20+00:00",
-    "score": 0.7532307977362391
+    "score": 0.7494311282080441
+  },
+  {
+    "name": "Appartamento in vendita in Via dei Musei 17,",
+    "link": "https://www.casa.it/immobili/51736053/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 80,
+    "price": 280000.0,
+    "location": "",
+    "extracted_time": "2025-06-12T11:13:54.677214+00:00",
+    "received_time": "2025-06-12T10:34:35+00:00",
+    "score": 0.7494029968595132
   },
   {
     "name": "Appartamento in vendita in Via Bernardino Zendrini,",
@@ -477,7 +487,7 @@
     "location": "",
     "extracted_time": "2025-05-12T17:13:41.489251+00:00",
     "received_time": "2025-05-12T17:11:50+00:00",
-    "score": 0.7392953213127534
+    "score": 0.7370700492972921
   },
   {
     "name": "Appartamento in vendita in Via Milano 38,",
@@ -487,7 +497,7 @@
     "location": "",
     "extracted_time": "2025-05-23T14:15:00.459654+00:00",
     "received_time": "2025-05-23T14:13:08+00:00",
-    "score": 0.7354837556155454
+    "score": 0.7326698468199135
   },
   {
     "name": "Appartamento in vendita in Contrada delle Cossere 24,",
@@ -497,7 +507,7 @@
     "location": "",
     "extracted_time": "2025-06-13T18:21:50.906737+00:00",
     "received_time": "2025-06-13T17:59:09+00:00",
-    "score": 0.7330083893211528
+    "score": 0.72904940202276
   },
   {
     "name": "﻿Trilocale via XX settembre, 81, Solferino - Diaz, Brescia﻿",
@@ -507,7 +517,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-14T14:15:56.883823+00:00",
     "received_time": "2025-05-14T13:47:20+00:00",
-    "score": 0.7276347130203278
+    "score": 0.7253088811723272
   },
   {
     "name": "Appartamento in vendita in Via Montebello,",
@@ -517,7 +527,7 @@
     "location": "",
     "extracted_time": "2025-05-13T17:14:15.752165+00:00",
     "received_time": "2025-05-13T16:32:48+00:00",
-    "score": 0.726128737906851
+    "score": 0.7238508099491758
   },
   {
     "name": "Appartamento in vendita in Via Carolina Bevilacqua,",
@@ -527,7 +537,7 @@
     "location": "",
     "extracted_time": "2025-05-10T11:12:37.953420+00:00",
     "received_time": "2025-05-10T10:59:52+00:00",
-    "score": 0.7255473684301116
+    "score": 0.723444322997877
   },
   {
     "name": "Appartamento in vendita in Via Giovanni Bruni 17,",
@@ -537,7 +547,7 @@
     "location": "",
     "extracted_time": "2025-05-19T11:13:43.019118+00:00",
     "received_time": "2025-05-19T10:34:26+00:00",
-    "score": 0.7245425352514823
+    "score": 0.7219533384987591
   },
   {
     "name": "Appartamento in vendita in Contrada delle Cossere 20,",
@@ -547,7 +557,7 @@
     "location": "",
     "extracted_time": "2025-06-12T19:12:20.675699+00:00",
     "received_time": "2025-06-12T19:11:56+00:00",
-    "score": 0.7238408471268121
+    "score": 0.7199332472621867
   },
   {
     "name": "Appartamento in vendita in Via Cremona 9,",
@@ -557,7 +567,7 @@
     "location": "",
     "extracted_time": "2025-05-12T11:13:21.287522+00:00",
     "received_time": "2025-05-12T11:00:22+00:00",
-    "score": 0.7208796310278262
+    "score": 0.7186683207487856
   },
   {
     "name": "Appartamento in vendita in Via Antonio Panigada,",
@@ -567,7 +577,7 @@
     "location": "",
     "extracted_time": "2025-05-09T18:20:49.745995+00:00",
     "received_time": "2025-05-09T17:47:38+00:00",
-    "score": 0.7171438362203698
+    "score": 0.7150795877274517
   },
   {
     "name": "Appartamento in vendita in Corso Goffredo Mameli,",
@@ -577,7 +587,7 @@
     "location": "",
     "extracted_time": "2025-05-10T11:12:37.510487+00:00",
     "received_time": "2025-05-10T10:59:52+00:00",
-    "score": 0.714965357848101
+    "score": 0.7128623124158664
   },
   {
     "name": "﻿Bilocale corso Goffredo Mameli, Loggia - Garibaldi, Brescia﻿",
@@ -587,7 +597,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-10T07:13:20.777406+00:00",
     "received_time": "2025-05-10T07:11:12+00:00",
-    "score": 0.7140210482973735
+    "score": 0.7119265974013778
   },
   {
     "name": "Appartamento in vendita in Via Veneto,",
@@ -597,17 +607,7 @@
     "location": "",
     "extracted_time": "2025-05-17T11:11:55.471123+00:00",
     "received_time": "2025-05-17T11:01:54+00:00",
-    "score": 0.7131222006261448
-  },
-  {
-    "name": "Appartamento in vendita in Via Alberto Mario 40,",
-    "link": "https://www.casa.it/immobili/51692673/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 96,
-    "price": 345000.0,
-    "location": "",
-    "extracted_time": "2025-06-06T11:14:00.847044+00:00",
-    "received_time": "2025-06-06T10:51:32+00:00",
-    "score": 0.708623143837674
+    "score": 0.7106402175808828
   },
   {
     "name": "Appartamento in vendita in Via Giovanni Chiassi 4,",
@@ -617,7 +617,17 @@
     "location": "",
     "extracted_time": "2025-05-30T12:31:29.670737+00:00",
     "received_time": "2025-05-30T11:27:41+00:00",
-    "score": 0.7084098135436359
+    "score": 0.70522326206899
+  },
+  {
+    "name": "Appartamento in vendita in Via Alberto Mario 40,",
+    "link": "https://www.casa.it/immobili/51692673/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 96,
+    "price": 345000.0,
+    "location": "",
+    "extracted_time": "2025-06-06T11:14:00.847044+00:00",
+    "received_time": "2025-06-06T10:51:32+00:00",
+    "score": 0.705059089887211
   },
   {
     "name": "Appartamento in vendita in Via Benedetto Croce 31,",
@@ -627,7 +637,7 @@
     "location": "",
     "extracted_time": "2025-05-27T12:32:43.122013+00:00",
     "received_time": "2025-05-27T11:18:16+00:00",
-    "score": 0.7066339685735907
+    "score": 0.7036101401095942
   },
   {
     "name": "Appartamento in vendita in Via Guglielmo Marconi,",
@@ -637,7 +647,7 @@
     "location": "",
     "extracted_time": "2025-05-06T18:21:26.379053+00:00",
     "received_time": "2025-05-06T17:45:11+00:00",
-    "score": 0.6980859719811782
+    "score": 0.6961841846537091
   },
   {
     "name": "Appartamento in vendita in Via Filippo Turati,",
@@ -647,7 +657,7 @@
     "location": "",
     "extracted_time": "2025-05-12T18:21:20.119459+00:00",
     "received_time": "2025-05-12T17:48:35+00:00",
-    "score": 0.6979900152585962
+    "score": 0.6957633619783821
   },
   {
     "name": "﻿Trilocale via Filippo Turati, Panoramica, Brescia﻿",
@@ -657,17 +667,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-12T15:18:22.300854+00:00",
     "received_time": "2025-05-12T14:54:58+00:00",
-    "score": 0.6972730420377559
-  },
-  {
-    "name": "Appartamento in vendita in Viale Duca D'Aosta 28,",
-    "link": "https://www.casa.it/immobili/50686795/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 98,
-    "price": 300000.0,
-    "location": "",
-    "extracted_time": "2025-05-26T11:12:32.797687+00:00",
-    "received_time": "2025-05-26T10:30:16+00:00",
-    "score": 0.6945736641290712
+    "score": 0.6950529142155595
   },
   {
     "name": "Appartamento in vendita in Via Angela Contini 16,",
@@ -677,7 +677,17 @@
     "location": "",
     "extracted_time": "2025-05-04T11:11:59.970974+00:00",
     "received_time": "2025-05-04T11:00:35+00:00",
-    "score": 0.6943178053582226
+    "score": 0.6925394711520237
+  },
+  {
+    "name": "Appartamento in vendita in Viale Duca D'Aosta 28,",
+    "link": "https://www.casa.it/immobili/50686795/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 98,
+    "price": 300000.0,
+    "location": "",
+    "extracted_time": "2025-05-26T11:12:32.797687+00:00",
+    "received_time": "2025-05-26T10:30:16+00:00",
+    "score": 0.6916057627930203
   },
   {
     "name": "Appartamento in vendita in Via Salvo D'Acquisto 6,",
@@ -687,7 +697,7 @@
     "location": "",
     "extracted_time": "2025-05-10T11:12:37.953688+00:00",
     "received_time": "2025-05-10T10:59:52+00:00",
-    "score": 0.691347537128831
+    "score": 0.6892444916965964
   },
   {
     "name": "Appartamento in vendita in Via Isonzo,",
@@ -697,7 +707,7 @@
     "location": "",
     "extracted_time": "2025-05-03T08:17:58.588827+00:00",
     "received_time": "2025-05-03T07:59:59+00:00",
-    "score": 0.6867664912956244
+    "score": 0.6850490680461115
   },
   {
     "name": "﻿Trilocale via Isonzo, Porta Venezia, Brescia﻿",
@@ -707,7 +717,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-03T08:17:59.267739+00:00",
     "received_time": "2025-05-03T07:57:05+00:00",
-    "score": 0.6867545153581736
+    "score": 0.6850372011064234
   },
   {
     "name": "Appartamento in vendita in Via San Giovanni Bosco,",
@@ -717,7 +727,7 @@
     "location": "",
     "extracted_time": "2025-05-02T11:12:50.029752+00:00",
     "received_time": "2025-05-02T10:32:00+00:00",
-    "score": 0.6830614371333082
+    "score": 0.6813924232982275
   },
   {
     "name": "Appartamento in vendita in Via Sostegno,",
@@ -727,7 +737,7 @@
     "location": "",
     "extracted_time": "2025-05-03T11:12:17.413199+00:00",
     "received_time": "2025-05-03T10:50:05+00:00",
-    "score": 0.6811197356224185
+    "score": 0.679395919090336
   },
   {
     "name": "Appartamento in vendita in Via Cipro 70,",
@@ -737,7 +747,7 @@
     "location": "",
     "extracted_time": "2025-05-16T12:31:51.454609+00:00",
     "received_time": "2025-05-16T11:13:25+00:00",
-    "score": 0.6783614502931039
+    "score": 0.6759331574159545
   },
   {
     "name": "Appartamento in vendita in Via Guglielmo Oberdan,",
@@ -747,7 +757,7 @@
     "location": "",
     "extracted_time": "2025-05-07T11:13:38.102387+00:00",
     "received_time": "2025-05-07T11:06:00+00:00",
-    "score": 0.6767534602962682
+    "score": 0.6748125534211618
   },
   {
     "name": "Appartamento in vendita in Via Trento,",
@@ -757,7 +767,7 @@
     "location": "",
     "extracted_time": "2025-05-08T11:13:22.132289+00:00",
     "received_time": "2025-05-08T10:55:02+00:00",
-    "score": 0.6749140753787788
+    "score": 0.6729194576635704
   },
   {
     "name": "Appartamento in vendita in Viale del Piave 93,",
@@ -767,7 +777,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:06.623240+00:00",
     "received_time": "2025-05-01T10:47:02+00:00",
-    "score": 0.668787788593854
+    "score": 0.6671723327514378
   },
   {
     "name": "﻿Bilocale corso Giacomo Matteotti 12, Loggia - Garibaldi, Brescia﻿",
@@ -777,7 +787,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-23T13:26:38.015425+00:00",
     "received_time": "2025-05-23T12:47:52+00:00",
-    "score": 0.667114234605483
+    "score": 0.664303530594647
   },
   {
     "name": "﻿Bilocale via Sostegno 6, Brescia Due, Brescia﻿",
@@ -787,7 +797,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-12T08:21:52.369094+00:00",
     "received_time": "2025-05-12T07:43:49+00:00",
-    "score": 0.6648574615499075
+    "score": 0.6626535386882042
   },
   {
     "name": "Appartamento in vendita in Via delle Battaglie 35,",
@@ -797,7 +807,7 @@
     "location": "",
     "extracted_time": "2025-05-20T15:17:26.413016+00:00",
     "received_time": "2025-05-20T14:46:42+00:00",
-    "score": 0.6628951426070306
+    "score": 0.6602423412747479
   },
   {
     "name": "﻿Bilocale via Delle Battaglie 35, Carmine, Brescia﻿",
@@ -807,7 +817,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-20T11:13:35.739865+00:00",
     "received_time": "2025-05-20T11:11:32+00:00",
-    "score": 0.662006583109954
+    "score": 0.6593618689105316
   },
   {
     "name": "Appartamento in vendita in Quartiere Giacomo Perlasca 5,",
@@ -817,7 +827,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:12.084684+00:00",
     "received_time": "2025-04-28T10:58:15+00:00",
-    "score": 0.659701672515375
+    "score": 0.6582481641707901
   },
   {
     "name": "Appartamento in vendita in Via Ischia,",
@@ -827,7 +837,7 @@
     "location": "",
     "extracted_time": "2025-05-04T11:11:59.970858+00:00",
     "received_time": "2025-05-04T11:00:35+00:00",
-    "score": 0.6595045241681298
+    "score": 0.657726189961931
   },
   {
     "name": "﻿Trilocale via Montebello, Porta Milano, Brescia﻿",
@@ -837,7 +847,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-12T13:28:48.388268+00:00",
     "received_time": "2025-05-12T12:47:56+00:00",
-    "score": 0.6564515162072468
+    "score": 0.6542361629882001
   },
   {
     "name": "Appartamento in vendita in Via Alessandro Lamarmora 294,",
@@ -847,7 +857,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:12.084422+00:00",
     "received_time": "2025-04-28T10:58:15+00:00",
-    "score": 0.6530909427925171
+    "score": 0.6516374344479322
   },
   {
     "name": "Appartamento in vendita in Via Monte Ortigara,",
@@ -857,7 +867,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:08.332523+00:00",
     "received_time": "2025-04-30T10:51:17+00:00",
-    "score": 0.6490219640995958
+    "score": 0.647460471546123
   },
   {
     "name": "﻿Bilocale via Veneto, Via Veneto - Borgo Trento, Brescia﻿",
@@ -867,7 +877,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-06T10:16:57.420044+00:00",
     "received_time": "2025-05-06T09:40:47+00:00",
-    "score": 0.6473738222300202
+    "score": 0.6454902412874819
   },
   {
     "name": "Appartamento in vendita in Via San Rocchino,",
@@ -877,17 +887,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:06.623029+00:00",
     "received_time": "2025-05-01T10:47:02+00:00",
-    "score": 0.6459333721806614
-  },
-  {
-    "name": "Appartamento in vendita in Via Giovanni Pascoli 9,",
-    "link": "https://www.casa.it/immobili/51435562/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 90,
-    "price": 198000.0,
-    "location": "",
-    "extracted_time": "2025-05-03T11:12:16.856433+00:00",
-    "received_time": "2025-05-03T10:50:05+00:00",
-    "score": 0.641092130377422
+    "score": 0.6443179163382452
   },
   {
     "name": "Appartamento in vendita in Via Berardo Maggi 61,",
@@ -897,7 +897,17 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:12.830641+00:00",
     "received_time": "2025-04-27T10:58:09+00:00",
-    "score": 0.6408721394975371
+    "score": 0.6394727579385399
+  },
+  {
+    "name": "Appartamento in vendita in Via Giovanni Pascoli 9,",
+    "link": "https://www.casa.it/immobili/51435562/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 90,
+    "price": 198000.0,
+    "location": "",
+    "extracted_time": "2025-05-03T11:12:16.856433+00:00",
+    "received_time": "2025-05-03T10:50:05+00:00",
+    "score": 0.6393683138453394
   },
   {
     "name": "Appartamento in vendita",
@@ -907,7 +917,7 @@
     "location": "vendita",
     "extracted_time": "2025-05-01T14:14:13.915820+00:00",
     "received_time": "2025-04-26T10:10:49+00:00",
-    "score": 0.6395609156586006
+    "score": 0.6382174361705919
   },
   {
     "name": "Appartamento in vendita in Via Galileo Galilei,",
@@ -917,7 +927,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:07.980262+00:00",
     "received_time": "2025-04-30T10:51:16+00:00",
-    "score": 0.6368972386464336
+    "score": 0.6353357467193848
   },
   {
     "name": "Appartamento in vendita in Via Berardo Maggi,",
@@ -927,7 +937,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:08.332437+00:00",
     "received_time": "2025-04-30T10:51:17+00:00",
-    "score": 0.6324103868472862
+    "score": 0.6308488942938135
   },
   {
     "name": "Appartamento in vendita in Via Angelo Inganni,",
@@ -937,17 +947,7 @@
     "location": "",
     "extracted_time": "2025-05-09T12:30:43.329981+00:00",
     "received_time": "2025-05-09T11:15:45+00:00",
-    "score": 0.6223172038264028
-  },
-  {
-    "name": "Appartamento in vendita in Via Gerolamo Savoldo 3,",
-    "link": "https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D",
-    "square_meters": 86,
-    "price": 169000.0,
-    "location": "",
-    "extracted_time": "2025-05-01T14:14:16.030432+00:00",
-    "received_time": "2025-04-24T11:10:47+00:00",
-    "score": 0.6103516416051602
+    "score": 0.6202676844392125
   },
   {
     "name": "Appartamento in vendita in Via Arrigo Boito,",
@@ -957,7 +957,17 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:22.635160+00:00",
     "received_time": "2025-04-21T10:34:10+00:00",
-    "score": 0.6103477453819669
+    "score": 0.609274003409261
+  },
+  {
+    "name": "Appartamento in vendita in Via Gerolamo Savoldo 3,",
+    "link": "https://www.casa.it/immobili/51210586/?aid=MTAxMTU3NTc%3D",
+    "square_meters": 86,
+    "price": 169000.0,
+    "location": "",
+    "extracted_time": "2025-05-01T14:14:16.030432+00:00",
+    "received_time": "2025-04-24T11:10:47+00:00",
+    "score": 0.6091141542979608
   },
   {
     "name": "Appartamento in vendita in Via Toscana,",
@@ -967,7 +977,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:12.084511+00:00",
     "received_time": "2025-04-28T10:58:15+00:00",
-    "score": 0.6009874398880989
+    "score": 0.599533931543514
   },
   {
     "name": "Appartamento in vendita in Via Nicolò Tartaglia,",
@@ -977,7 +987,7 @@
     "location": "",
     "extracted_time": "2025-05-06T17:13:51.564821+00:00",
     "received_time": "2025-05-06T16:37:33+00:00",
-    "score": 0.5979367342686517
+    "score": 0.5960374889694667
   },
   {
     "name": "Appartamento in vendita in Via Lattanzio Gambara 75,",
@@ -987,17 +997,7 @@
     "location": "",
     "extracted_time": "2025-05-13T17:14:15.751983+00:00",
     "received_time": "2025-05-13T16:32:48+00:00",
-    "score": 0.5851537708449274
-  },
-  {
-    "name": "Appartamento in vendita in Via Antonio Gramsci 22,",
-    "link": "https://www.casa.it/immobili/50973762/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 66,
-    "price": 230000.0,
-    "location": "",
-    "extracted_time": "2025-05-14T20:14:41.495152+00:00",
-    "received_time": "2025-05-14T19:12:55+00:00",
-    "score": 0.5844420938645741
+    "score": 0.5828758428872522
   },
   {
     "name": "Appartamento in vendita in Via Mantova 61,",
@@ -1007,7 +1007,17 @@
     "location": "",
     "extracted_time": "2025-05-09T12:30:42.297115+00:00",
     "received_time": "2025-05-09T12:16:56+00:00",
-    "score": 0.5842883557373744
+    "score": 0.5822365367479587
+  },
+  {
+    "name": "Appartamento in vendita in Via Antonio Gramsci 22,",
+    "link": "https://www.casa.it/immobili/50973762/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 66,
+    "price": 230000.0,
+    "location": "",
+    "extracted_time": "2025-05-14T20:14:41.495152+00:00",
+    "received_time": "2025-05-14T19:12:55+00:00",
+    "score": 0.5821040248252158
   },
   {
     "name": "﻿Trilocale via dei Mille 22, Loggia - Garibaldi, Brescia﻿",
@@ -1017,7 +1027,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:26.016451+00:00",
     "received_time": "2025-04-17T10:28:05+00:00",
-    "score": 0.5704291893945463
+    "score": 0.5695721681747491
   },
   {
     "name": "﻿Bilocale via Sostegno, Brescia Due, Brescia﻿",
@@ -1027,7 +1037,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:27.599866+00:00",
     "received_time": "2025-04-16T16:46:59+00:00",
-    "score": 0.5682284188332555
+    "score": 0.5674112795190114
   },
   {
     "name": "Appartamento in vendita in Via Aleardo Aleardi 1,",
@@ -1037,7 +1047,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:07.979911+00:00",
     "received_time": "2025-04-30T10:51:16+00:00",
-    "score": 0.5674330600603453
+    "score": 0.5658715681332965
   },
   {
     "name": "﻿Attico via dei Mille, Loggia - Garibaldi, Brescia﻿",
@@ -1047,7 +1057,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:24.064329+00:00",
     "received_time": "2025-04-17T14:50:48+00:00",
-    "score": 0.5651775157575848
+    "score": 0.5643106202174717
   },
   {
     "name": "Appartamento in vendita in Corso Giacomo Matteotti 12,",
@@ -1057,7 +1067,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:07.979742+00:00",
     "received_time": "2025-04-30T10:51:16+00:00",
-    "score": 0.5616301557067164
+    "score": 0.5600686637796676
   },
   {
     "name": "Appartamento in vendita in Via Nicolò Tommaseo 8,",
@@ -1067,7 +1077,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:06.306108+00:00",
     "received_time": "2025-05-01T10:47:02+00:00",
-    "score": 0.556643226725156
+    "score": 0.5550277708827398
   },
   {
     "name": "Appartamento in vendita in Lamarmora,",
@@ -1077,7 +1087,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:07.979436+00:00",
     "received_time": "2025-04-30T10:51:16+00:00",
-    "score": 0.5556241497007104
+    "score": 0.5540626577736615
   },
   {
     "name": "﻿Bilocale via Alessandro Volta 5, Loggia - Garibaldi, Brescia﻿",
@@ -1087,7 +1097,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:31.741853+00:00",
     "received_time": "2025-04-09T14:27:11+00:00",
-    "score": 0.5461974529808257
+    "score": 0.5457644292997657
   },
   {
     "name": "Appartamento in vendita in Via Crocifissa di Rosa 57,",
@@ -1097,7 +1107,7 @@
     "location": "",
     "extracted_time": "2025-05-02T08:19:59.614813+00:00",
     "received_time": "2025-05-02T08:18:04+00:00",
-    "score": 0.5443405511976073
+    "score": 0.5426765713051808
   },
   {
     "name": "Appartamento in vendita in Via San Faustino,",
@@ -1107,7 +1117,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:21.342848+00:00",
     "received_time": "2025-04-22T10:07:58+00:00",
-    "score": 0.5347103900858323
+    "score": 0.533583509824491
   },
   {
     "name": "﻿Bilocale via Bezzecca, Via Veneto - Borgo Trento, Brescia﻿",
@@ -1117,7 +1127,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:20.039742+00:00",
     "received_time": "2025-04-22T15:38:54+00:00",
-    "score": 0.5333931802362181
+    "score": 0.5322538617014394
   },
   {
     "name": "Appartamento in vendita in Vicolo San Zanino 15,",
@@ -1127,7 +1137,7 @@
     "location": "",
     "extracted_time": "2025-05-22T11:13:48.339762+00:00",
     "received_time": "2025-05-22T11:05:31+00:00",
-    "score": 0.5233952683760421
+    "score": 0.5206425342615681
   },
   {
     "name": "Appartamento in vendita in Via Moretto,",
@@ -1137,7 +1147,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:21.670472+00:00",
     "received_time": "2025-04-22T10:07:58+00:00",
-    "score": 0.5088381410251774
+    "score": 0.5077112607638362
   },
   {
     "name": "Appartamento in vendita in Contrada del Carmine,",
@@ -1147,7 +1157,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:22.308512+00:00",
     "received_time": "2025-04-21T10:34:09+00:00",
-    "score": 0.5055468074518116
+    "score": 0.5044730661055297
   },
   {
     "name": "Appartamento in vendita in Via Cremona 48",
@@ -1157,7 +1167,7 @@
     "location": "Via Cremona 48",
     "extracted_time": "2025-05-01T14:14:23.189063+00:00",
     "received_time": "2025-04-20T12:34:40+00:00",
-    "score": 0.5025655663370473
+    "score": 0.5015414183464141
   },
   {
     "name": "Appartamento in vendita in Via Zara,",
@@ -1167,7 +1177,7 @@
     "location": "",
     "extracted_time": "2025-05-02T11:12:50.030137+00:00",
     "received_time": "2025-05-02T10:32:00+00:00",
-    "score": 0.49980507996390755
+    "score": 0.49813606612882677
   },
   {
     "name": "Appartamento in vendita in veneto",
@@ -1177,7 +1187,7 @@
     "location": "veneto",
     "extracted_time": "2025-05-01T14:14:23.188894+00:00",
     "received_time": "2025-04-20T12:34:40+00:00",
-    "score": 0.4987315045319709
+    "score": 0.49770735654133774
   },
   {
     "name": "Appartamento in vendita in Viale Venezia 41,",
@@ -1187,17 +1197,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:10.414072+00:00",
     "received_time": "2025-04-29T11:28:43+00:00",
-    "score": 0.4947028339937002
-  },
-  {
-    "name": "Appartamento in vendita in Via Mazzini 42,",
-    "link": "https://www.casa.it/immobili/51449917/?aid=MTAxMTYzNDk%3D",
-    "square_meters": 64,
-    "price": 250000.0,
-    "location": "",
-    "extracted_time": "2025-05-06T12:32:55.427578+00:00",
-    "received_time": "2025-05-06T11:18:42+00:00",
-    "score": 0.49419525143021165
+    "score": 0.4931940575191379
   },
   {
     "name": "Appartamento in vendita in Via Sostegno 6,",
@@ -1207,7 +1207,17 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:19.284649+00:00",
     "received_time": "2025-04-23T10:19:51+00:00",
-    "score": 0.4940355144838038
+    "score": 0.49285406455516056
+  },
+  {
+    "name": "Appartamento in vendita in Via Mazzini 42,",
+    "link": "https://www.casa.it/immobili/51449917/?aid=MTAxMTYzNDk%3D",
+    "square_meters": 64,
+    "price": 250000.0,
+    "location": "",
+    "extracted_time": "2025-05-06T12:32:55.427578+00:00",
+    "received_time": "2025-05-06T11:18:42+00:00",
+    "score": 0.49230799024711913
   },
   {
     "name": "Appartamento in vendita in Via Giuseppe Mazzini,",
@@ -1217,7 +1227,7 @@
     "location": "",
     "extracted_time": "2025-05-05T20:17:12.985798+00:00",
     "received_time": "2025-05-05T19:50:32+00:00",
-    "score": 0.4903622631736507
+    "score": 0.4885098875388926
   },
   {
     "name": "Appartamento in vendita in Corso Goffredo Mameli",
@@ -1227,7 +1237,7 @@
     "location": "Corso Goffredo Mameli",
     "extracted_time": "2025-05-01T14:14:23.188804+00:00",
     "received_time": "2025-04-20T12:34:40+00:00",
-    "score": 0.48799613147775733
+    "score": 0.4869719834871241
   },
   {
     "name": "﻿Bilocale Contrada del Carmine, Carmine, Brescia﻿",
@@ -1237,7 +1247,7 @@
     "location": "Brescia﻿",
     "extracted_time": "2025-05-01T14:14:25.352062+00:00",
     "received_time": "2025-04-17T11:06:10+00:00",
-    "score": 0.4860218848757374
+    "score": 0.48516343227727354
   },
   {
     "name": "Appartamento in vendita in Via Marsala 38",
@@ -1247,7 +1257,7 @@
     "location": "Via Marsala 38",
     "extracted_time": "2025-05-01T14:14:22.958703+00:00",
     "received_time": "2025-04-20T13:46:30+00:00",
-    "score": 0.4431726353706338
+    "score": 0.4421457874928876
   },
   {
     "name": "Appartamento in vendita in Via Vittorio Emanuele II,",
@@ -1257,7 +1267,7 @@
     "location": "",
     "extracted_time": "2025-05-01T14:14:21.343024+00:00",
     "received_time": "2025-04-22T10:07:58+00:00",
-    "score": 0.4396055442088316
+    "score": 0.4384786639474903
   },
   {
     "name": "Appartamento in vendita in Via Vittorio Emanuele II",
@@ -1267,7 +1277,7 @@
     "location": "Via Vittorio Emanuele II",
     "extracted_time": "2025-05-01T14:14:23.189226+00:00",
     "received_time": "2025-04-20T12:34:40+00:00",
-    "score": 0.4283180166796615
+    "score": 0.42729386868902836
   },
   {
     "name": "Appartamento in vendita in Via Somalia,",
@@ -1277,7 +1287,7 @@
     "location": "",
     "extracted_time": "2025-05-02T11:12:50.565799+00:00",
     "received_time": "2025-05-02T10:32:00+00:00",
-    "score": 0.4128485582247772
+    "score": 0.4111795443896964
   },
   {
     "name": "﻿Bilocale via camozzi, snc, Porta Milano, Brescia﻿",
@@ -1297,6 +1307,6 @@
     "location": "",
     "extracted_time": "2025-05-26T15:16:07.360112+00:00",
     "received_time": "2025-05-26T14:38:48+00:00",
-    "score": 0.32711929011047736
+    "score": 0.32414204754087
   }
 ]
